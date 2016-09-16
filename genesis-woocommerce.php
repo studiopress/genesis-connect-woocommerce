@@ -40,7 +40,7 @@ class Genesis_WooCommerce() {
 
 	public function add_post_type_support() {
 
-		add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-seo' ) );
+		add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-seo', 'genesis-cpt-archives-settings' ) );
 		add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
 
 	}
