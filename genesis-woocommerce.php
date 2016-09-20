@@ -3,7 +3,7 @@
 Plugin Name: Genesis WooCommerce
 */
 
-class Genesis_WooCommerce() {
+class Genesis_WooCommerce {
 
 	public $plugin_dir_path;
 
