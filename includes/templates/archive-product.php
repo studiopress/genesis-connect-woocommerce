@@ -30,12 +30,13 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 )
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
+// Add the WooCommerce content
+add_action( 'genesis_before_loop', array( Genesis_WooCommerce()->templates, 'woo_content' ) );
 
 /** Get Shop Page ID */
 // @TODO Retained for backwards compatibility with < 1.6.0 WooC installs
 global $shop_page_id;
 $shop_page_id = get_option( 'woocommerce_shop_page_id' );
-
 
 add_filter( 'genesis_pre_get_option_site_layout', 'genesiswooc_archive_layout' );
 /**
@@ -56,35 +57,6 @@ function genesiswooc_archive_layout( $layout ) {
 	$layout = get_post_meta( $shop_page_id, '_genesis_layout', true );
 
 	return $layout;
-}
-
-add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
-/**
- * Display shop items (product custom post archive)
- *
- * This function has been refactored in 0.9.4 to provide compatibility with
- * both WooC 1.6.0 and backwards compatibility with older versions.
- * This is needed thanks to substantial changes to WooC template contents
- * introduced in WooC 1.6.0.
- *
- * @uses genesiswooc_content_product() if WooC is version 1.6.0+
- * @uses genesiswooc_product_archive() for earlier WooC versions
- *
- * @since 0.9.0
- * @updated 0.9.4
- * @global object $woocommerce
- */
-function genesiswooc_archive_product_loop() {
-
-	global $woocommerce;
-
-	$new = version_compare( $woocommerce->version, '1.6.0', '>=' );
-
-	if ( $new )
-		genesiswooc_content_product();
-
-	else
-		genesiswooc_product_archive();
 }
 
 genesis();
