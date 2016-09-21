@@ -6,7 +6,7 @@ class Genesis_WooCommerce_Templates {
 
   public function __construct() {
 
-    $this->template_dir = Genesis_WooCommerce()->plugin_dir_path;
+    $this->template_dir = Genesis_WooCommerce()->plugin_dir_path . 'includes/templates/';
 
     $this->filters();
 
