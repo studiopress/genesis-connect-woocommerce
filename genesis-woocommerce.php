@@ -17,7 +17,7 @@ class Genesis_WooCommerce {
 
 	public $simple_menus;
 
-	public function __construct() {
+	public function init() {
 
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
@@ -26,9 +26,9 @@ class Genesis_WooCommerce {
 		$this->plugin_dir_path = plugin_dir_path( __FILE__ );
 		$this->plugin_dir_url  = plugin_dir_url( __FILE__ );
 
-		add_action( 'after_setup_theme', array( $this, 'add_theme_support' ) );
-		add_action( 'after_setup_theme', array( $this, 'add_post_type_support' ) );
-		add_action( 'plugins_loaded', array( $this, 'set_up_objects' ) );
+		$this->add_theme_support();
+		$this->add_post_type_support();
+		$this->set_up_objects();
 
 	}
 
@@ -42,6 +42,7 @@ class Genesis_WooCommerce {
 
 		add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-seo', 'genesis-cpt-archives-settings' ) );
 		add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
+		echo 'Post type support.';
 
 	}
 
@@ -63,6 +64,7 @@ class Genesis_WooCommerce {
 
 }
 
+add_action( 'plugins_loaded', array( Genesis_WooCommerce(), 'init' ) );
 function Genesis_WooCommerce() {
 
 	static $_genesis_woocommerce = null;
@@ -74,5 +76,3 @@ function Genesis_WooCommerce() {
 	return $_genesis_woocommerce;
 
 }
-
-Genesis_WooCommerce();
