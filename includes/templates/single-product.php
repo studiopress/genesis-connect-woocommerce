@@ -15,19 +15,15 @@
  *
  */
 
-/** Remove default Genesis loop */
+// Remove default Genesis loop
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
-/** Remove WooCommerce breadcrumbs */
+// Remove WooCommerce breadcrumbs
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
-/** Uncomment the below line of code to add back WooCommerce breadcrumbs */
-//add_action( 'genesis_before_loop', 'woocommerce_breadcrumb', 10, 0 );
-
-/** Remove Woo #container and #content divs */
+// Remove Woo #container and #content divs
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-
 
 add_action( 'genesis_loop', 'gencwooc_single_product_loop' );
 /**
@@ -55,6 +51,7 @@ function gencwooc_single_product_loop() {
 		global $wp_query;
 
 		$wc_query = $wp_query;
+
 	}
 
 	if ( $wc_query->have_posts() ) while ( $wc_query->have_posts() ) : $wc_query->the_post(); ?>
@@ -66,9 +63,7 @@ function gencwooc_single_product_loop() {
 			<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 
 			<div class="summary">
-
 				<?php do_action( 'woocommerce_single_product_summary'); ?>
-
 			</div>
 
 			<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
