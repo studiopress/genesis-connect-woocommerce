@@ -82,6 +82,9 @@ function gencwooc_setup() {
 	/** Load GCW files */
 	require_once( GCW_LIB_DIR . '/template-loader.php' );
 
+	// Load posts per page option
+	require_once( GCW_LIB_DIR . '/posts-per-page.php' );
+
 	/** Load modified Genesis breadcrumb filters and callbacks */
 	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs') )
 		require_once( GCW_LIB_DIR . '/breadcrumb.php' );
