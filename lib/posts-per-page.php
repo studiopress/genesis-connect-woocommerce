@@ -72,7 +72,7 @@ function genesis_connect_get_settings() {
 			'type'    => 'number',
 			'desc'    => __( 'This determines how many products show up on archive pages.', 'gencwooc' ),
 			'id'      => 'gencwooc_products_per_page',
-			'default' => get_option( 'posts_per_page' ),
+			'default' => apply_filters( 'genesiswooc_products_per_page', get_option( 'posts_per_page' ) ),
         ),
         'section_end' => array(
              'type' => 'sectionend',
@@ -94,6 +94,6 @@ function genesiswooc_products_per_page( $count ) {
 
 	$count = get_option( 'gencwooc_products_per_page' ) ? get_option( 'gencwooc_products_per_page' ) : $count;
 
-	return apply_filters( 'genesiswooc_products_per_page', $count );
+	return $count;
 
 }
