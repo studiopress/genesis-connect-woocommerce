@@ -27,24 +27,7 @@ register_activation_hook( __FILE__, 'gencwooc_activation' );
  *
  * @since 0.9.0
  */
-function gencwooc_activation() {
-
-	$message = '';
-
-	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-		$message .= sprintf( '<br /><br />%s', __( 'Install and activate the WooCommerce plugin.', 'gencwooc') );
-	}
-
-	if ( ! empty( $message ) ) {
-
-		deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-
-		$message = __( 'Sorry! In order to use the Genesis Connect for WooCommerce plugin you need to do the following:', 'gencwooc' ) . $message;
-
-		wp_die( $message, 'Genesis Connect for WooCommerce Plugin', array( 'back_link' => true ) );
-
-	}
-}
+function gencwooc_activation() {}
 
 
 
