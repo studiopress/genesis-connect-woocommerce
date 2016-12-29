@@ -92,7 +92,7 @@ function genesis_connect_get_settings() {
 add_filter( 'loop_shop_per_page', 'genesiswooc_products_per_page' );
 function genesiswooc_products_per_page( $count ) {
 
-	$count = get_option( 'gencwooc_products_per_page' ) ? get_option( 'gencwooc_products_per_page' ) : $count;
+	$count = get_option( 'gencwooc_products_per_page' ) ? get_option( 'gencwooc_products_per_page' ) : apply_filters( 'genesiswooc_default_products_per_page', get_option( 'posts_per_page' ) );
 
 	return $count;
 
