@@ -70,7 +70,7 @@ function genesis_connect_get_settings() {
 		'products_per_page' => array(
 			'name'    => __( 'Products Per Page', 'gencwooc' ),
 			'type'    => 'number',
-			'desc'    => __( 'This determines how many products show up on archive pages.', 'gencwooc' ),
+			'desc'    => __( 'This setting determines how many products show up on archive pages and may be overridden by filters used in themes and plugins.', 'gencwooc' ),
 			'id'      => 'gencwooc_products_per_page',
 			'default' => apply_filters( 'genesiswooc_default_products_per_page', get_option( 'posts_per_page' ) ),
         ),
