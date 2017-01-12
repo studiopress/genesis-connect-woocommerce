@@ -22,7 +22,7 @@ register_activation_hook( __FILE__, 'gencwooc_activation' );
  * - WooCommerce needs to be installed and activated
  *
  * Note: register_activation_hook() isn't run after auto or manual upgrade, only on activation
- * Note: this version of GCW is based on WooCommerce 1.4.4
+ * Note: this version of GCW is based on WooCommerce 2.1+
  *
  * @since 0.9.0
  */
