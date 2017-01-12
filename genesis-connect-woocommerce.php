@@ -20,7 +20,6 @@ register_activation_hook( __FILE__, 'gencwooc_activation' );
  *
  * Requirements:
  * - WooCommerce needs to be installed and activated
- * - Child theme needs to have add_theme_support( 'genesis-connect-woocommerce' ) in functions.php
  *
  * Note: register_activation_hook() isn't run after auto or manual upgrade, only on activation
  * Note: this version of GCW is based on WooCommerce 1.4.4
