@@ -26,7 +26,15 @@ register_activation_hook( __FILE__, 'gencwooc_activation' );
  *
  * @since 0.9.0
  */
-function gencwooc_activation() {}
+function gencwooc_activation() {
+
+	//* If Genesis is not the active theme, deactivate and die.
+	if ( 'genesis' != get_option( 'template' ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'gencwooc' ), 'http://my.studiopress.com/themes/genesis/' ) );
+	}
+
+}
 
 
 

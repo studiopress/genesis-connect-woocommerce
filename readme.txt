@@ -2,8 +2,8 @@
 Contributors: nathanrice, studiopress, studiograsshopper
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 3.3
-Tested up to: 4.6.1
-Stable tag: 0.9.8
+Tested up to: 4.7
+Stable tag: 0.9.9
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
@@ -22,17 +22,11 @@ Additionally, the plugin makes [Genesis Simple Sidebars](http://wordpress.org/ex
 1. Upload the entire `genesis-connect-woocommerce` folder to the `/wp-content/plugins/` directory
 2. DO NOT change the name of the `genesis-connect-woocommerce` folder
 3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Add this code to your Genesis child theme's `functions.php` file: `add_theme_support( 'genesis-connect-woocommerce' );`
 5. That's it. Navigate to your shop pages and you should see the new templates in action.
 
-Note: You must have a Genesis child theme activated, and WooCommerce installed and activated, before installing and activating this plugin.
+Note: You must have a Genesis child theme activated before installing and activating this plugin.
 
 == Frequently Asked Questions ==
-
-= I've activated the plugin but it does not seem to do anything =
-
-Make sure you have added this code to your Genesis child theme's `functions.php` file:
-`add_theme_support( 'genesis-connect-woocommerce' );`
 
 = Can I customize the Genesis Connect for Woocommerce templates? =
 
@@ -78,7 +72,7 @@ If you are using a Genesis child theme specially designed for WooCommerce, refer
 
 = Where is the plugin's settings page? =
 
-There isn't one! This plugin does not need one as all of its work is behind the scenes, integrating the display of WooCommerce within Genesis themes. 
+There isn't one! This plugin does not need one as all of its work is behind the scenes, integrating the display of WooCommerce within Genesis themes.
 
 
 == Other Notes ==
@@ -99,7 +93,7 @@ For more technically minded users, this is what the plugin does:
 	* unhook the Genesis Loop and replace it with the relevant WooCommerce shop loop
 	* remove WooCommerce's #container and #content divs, which are not required or wanted by Genesis
 * The shop loop function in each template is heavily based on its WooCommerce counterpart, but has been modified to accommodate certain Genesis features such as the Taxonomy term headings and descriptions feature.
-* The templates contain the `genesis();` function and therefore are fully customisable using Genesis hooks and filters. 
+* The templates contain the `genesis();` function and therefore are fully customisable using Genesis hooks and filters.
 * The template loader allows users to use their own templates in the child theme's 'woocommerce' folder. These user templates, if they exist in the child theme's `woocommerce' folder, will be loaded in place of the supplied Genesis Connect for WooCommerce templates
 * Using appropriate filters, modifies the Genesis breadcrumbs output to mimic the breadcrumb structure provided by WooCommerce's built-in breadcrumbs.
 
@@ -140,6 +134,13 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * The above information is based on WooCommerce 1.4.4
 
 == Changelog ==
+
+= 0.9.9 =
+* Released 12 January 2017
+* Adds the Genesis Connect Addons tab to the WooCommerce settings page.
+* Adds an option to control the products to show per page on the Shop page template (can be overriden by theme).
+* Removes the add_theme_support( 'genesis-connect-woocommerce' ); requirement.
+* Update activation check function to only verify that Genesis is active.
 
 = 0.9.8 =
 * Released 9 July 2014
