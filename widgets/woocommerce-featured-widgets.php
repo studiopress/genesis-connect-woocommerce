@@ -350,12 +350,6 @@
  	 */
  	public function widget( $args, $instance ) {
 
- 		if ( $this->get_cached_widget( $args ) ) {
-            return;
-        }
-
- 		ob_start();
-
 		$this->widget_start( $args, $instance );
 
 		if ( isset( $instance['columns'] ) && ! empty( $instance['columns'] ) ) {
@@ -482,57 +476,20 @@
 			echo '</div>';
 		}
 
+        if ( $instance['more_from_category'] ) {
+            $cat = get_term( array( 'name' => $instance['product_cat'] ) );
+            printf(
+ 				'<div class="clearfix"></div><p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
+ 				esc_url( get_term_link( $cat->term_taxonomy_id ) ),
+ 				esc_attr( $cat->name ),
+                esc_html( $instance['more_from_category_text'] )
+ 			);
+ 		}
+
 		$this->widget_end( $args );
 
  		// Restore original query.
  		wp_reset_query();
-
- 		echo $this->cache_widget( $args, ob_get_clean() );
-
- 		// The EXTRA Posts (list).
- 		if ( ! empty( $instance['extra_num'] ) ) {
- 			if ( ! empty( $instance['extra_title'] ) ) {
- 				echo $args['before_title'] . '<span class="more-posts-title">' . esc_html( $instance['extra_title'] ) . '</span>' . $args['after_title'];
- 			}
-
- 			$offset = (int) $instance['product_num'] + (int) $instance['product_offset'];
-
- 			$query_args = array(
- 				'cat'       => $instance['product_cat'],
- 				'showposts' => $instance['extra_num'],
- 				'offset'    => $offset,
-                 'tax_query' => array(
-                     'relation' => 'AND',
-                 ),
- 			);
-
- 			$wp_query = new WP_Query( $query_args );
-
- 			$listitems = '';
-
- 			if ( have_posts() ) {
- 				while ( have_posts() ) {
- 					the_post();
- 					$listitems .= sprintf( '<li><a href="%s">%s</a></li>', get_permalink(), get_the_title() );
- 				}
-
- 				if ( mb_strlen( $listitems ) > 0 ) {
- 					printf( '<ul class="more-posts">%s</ul>', $listitems );
- 				}
- 			}
-
- 			// Restore original query.
- 			wp_reset_query();
- 		}
-
- 		if ( ! empty( $instance['more_from_category'] ) && ! empty( $instance['product_cat'] ) ) {
- 			printf(
- 				'<p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
- 				esc_url( get_category_link( $instance['product_cat'] ) ),
- 				esc_attr( get_cat_name( $instance['product_cat'] ) ),
- 				esc_html( $instance['more_from_category_text'] )
- 			);
- 		}
 
  	}
 
