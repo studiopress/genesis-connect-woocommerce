@@ -86,7 +86,8 @@ function gencwooc_setup() {
 	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
 
 	/** Add Widgets */
-	require_once( GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php' );
+	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) )
+		require_once( GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php' );
 
 	/** Take control of shop template loading */
 	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );

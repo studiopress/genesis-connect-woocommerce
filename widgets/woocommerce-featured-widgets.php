@@ -15,7 +15,7 @@
   *
   * @package Canvas
   */
- class Genwooc_Featured_Products extends WC_Widget {
+ class Gencwooc_Featured_Products extends WC_Widget {
 
 	 /**
  	 * Holds widget settings defaults, populated in constructor.
@@ -35,7 +35,7 @@
  		add_action( 'admin_init',                        array( $this, 'set_featured_products'        ) );
 
         // Set the widget default settings.
-        $this->defaults = apply_filters( 'genwooc_featured_products_defaults', array(
+        $this->defaults = apply_filters( 'gencwooc_featured_products_defaults', array(
 			'category'                => '',
 			'count'                   => 8,
 			'offset'                  => 0,
@@ -53,23 +53,23 @@
 			'show_add_to_cart'        => 1,
 			'show_price'              => 1,
 			'more_from_category'      => 0,
-			'more_from_category_text' => __( 'More Products from this Category', 'genwooc' ),
+			'more_from_category_text' => __( 'More Products from this Category', 'gencwooc' ),
 		));
 
  		$this->widget_cssclass    = 'featured-content featuredproducts';
- 		$this->widget_name        = __( 'Genesis - Featured Products', 'genwooc' );
- 		$this->widget_description = __( 'Displays featured products with thumbnails', 'genwooc' );
+ 		$this->widget_name        = __( 'Genesis - Featured Products', 'gencwooc' );
+ 		$this->widget_description = __( 'Displays featured products with thumbnails', 'gencwooc' );
  		$this->widget_id          = 'featured-products';
  		$this->settings           = array(
  			'title'    => array(
  				'type'  => 'text',
  				'std'   => '',
- 				'label' => __( 'Title', 'genwooc' ),
+ 				'label' => __( 'Title', 'gencwooc' ),
  			),
  			'product_cat' => array(
  				'type'   => 'select',
  				'std'    => esc_html( $this->defaults['category'] ),
- 				'label'  => __( 'Product Category', 'genwooc' ),
+ 				'label'  => __( 'Product Category', 'gencwooc' ),
  				'options' => array(),
  			),
  			'product_num' => array(
@@ -78,7 +78,7 @@
  				'min'  => 1,
  				'max'  => '',
  				'std'  => absint( $this->defaults['count'] ),
- 				'label' => __( 'Products to Show', 'genwooc' ),
+ 				'label' => __( 'Products to Show', 'gencwooc' ),
  			),
  			'product_offset' => array(
  				'type' => 'number',
@@ -86,55 +86,54 @@
  				'min'  => 0,
  				'max'  => '',
  				'std'  => absint( $this->defaults['offset'] ),
- 				'label' => __( 'Product Offset', 'genwooc' ),
+ 				'label' => __( 'Product Offset', 'gencwooc' ),
  			),
  			'product_show' => array(
  				'type' => 'select',
  				'std'  => esc_html( $this->defaults['show_type'] ),
- 				'label' => __( 'Show', 'genwooc' ),
+ 				'label' => __( 'Show', 'gencwooc' ),
  				'options' => array(
-                    ''         => __( 'All products', 'genwooc' ),
-                    'featured' => __( 'Featured products', 'genwooc' ),
-                    'onsale'   => __( 'On-sale products', 'genwooc' ),
+                    ''         => __( 'All products', 'gencwooc' ),
+                    'featured' => __( 'Featured products', 'gencwooc' ),
+                    'onsale'   => __( 'On-sale products', 'gencwooc' ),
                  ),
  			),
 			'columns' => array(
 				'type' => 'select',
 				'std'  => esc_html( $this->defaults['columns'] ),
-				'label' => __( 'Product Columns', 'genwooc' ),
+				'label' => __( 'Product Columns', 'gencwooc' ),
 				'options' => array(
-					'' => __( 'None', 'genwooc' ),
-					'column-halves' => __( 'One-Half', 'genwooc' ),
-					'column-thirds' => __( 'One-Third', 'genwooc' ),
-					'column-fourths' => __( 'One-Fourth', 'genwooc' ),
-					'column-fifths' => __( 'One-Fifth', 'genwooc' ),
-					'column-sixths' => __( 'One-Sixth', 'genwooc' ),
+					'' => __( 'None', 'gencwooc' ),
+					'one-half'   => __( 'One-Half', 'gencwooc' ),
+					'one-third'  => __( 'One-Third', 'gencwooc' ),
+					'one-fourth' => __( 'One-Fourth', 'gencwooc' ),
+					'one-sixth'  => __( 'One-Sixth', 'gencwooc' ),
 				),
 			),
  			'orderby' => array(
                  'type'  => 'select',
                  'std'   => esc_html( $this->defaults['orderby'] ),
-                 'label' => __( 'Order by', 'genwooc' ),
+                 'label' => __( 'Order by', 'gencwooc' ),
                  'options' => array(
-                     'date'   => __( 'Date', 'genwooc' ),
-                     'price'  => __( 'Price', 'genwooc' ),
-                     'rand'   => __( 'Random', 'genwooc' ),
-                     'sales'  => __( 'Sales', 'genwooc' ),
+                     'date'   => __( 'Date', 'gencwooc' ),
+                     'price'  => __( 'Price', 'gencwooc' ),
+                     'rand'   => __( 'Random', 'gencwooc' ),
+                     'sales'  => __( 'Sales', 'gencwooc' ),
                  ),
              ),
  			'order' => array(
                  'type'  => 'select',
                  'std'   => esc_html( $this->defaults['order'] ),
-                 'label' => _x( 'Order', 'Sorting Order', 'genwooc' ),
+                 'label' => _x( 'Order', 'Sorting Order', 'gencwooc' ),
                  'options' => array(
-                     'asc'  => __( 'ASC', 'genwooc' ),
-                     'desc' => __( 'DESC', 'genwooc' ),
+                     'asc'  => __( 'ASC', 'gencwooc' ),
+                     'desc' => __( 'DESC', 'gencwooc' ),
                  ),
              ),
  			'hide_free' => array(
                  'type'  => 'checkbox',
                  'std'   => absint( $this->defaults['show_free'] ),
-                 'label' => __( 'Hide Free Products', 'genwooc' ),
+                 'label' => __( 'Hide Free Products', 'gencwooc' ),
              ),
  			'show_hidden' => array(
                  'type'  => 'checkbox',
@@ -144,54 +143,54 @@
  			'show_image' => array(
  				'type'  => 'checkbox',
  				'std'   => absint( $this->defaults['show_image'] ),
- 				'label' => __( 'Show Featured Image?', 'genwooc' ),
+ 				'label' => __( 'Show Featured Image?', 'gencwooc' ),
  			),
 			'image_size' => array(
  				'type' => 'select',
  				'std'  => esc_html( $this->defaults['image_size'] ),
- 				'label' => __( 'Image Size', 'genwooc' ),
+ 				'label' => __( 'Image Size', 'gencwooc' ),
  				'options' => $this->get_featured_image_sizes(),
  			),
 			'link_image' => array(
 				'type' => 'checkbox',
 				'std'  => absint( $this->defaults['link_image'] ),
-				'label' => __( 'Link Product Image?', 'genwooc' ),
+				'label' => __( 'Link Product Image?', 'gencwooc' ),
 			),
  			'image_alignment' => array(
  				'type' => 'select',
  				'std'  => esc_html( $this->defaults['image_alignment'] ),
- 				'label' => __( 'Image Alignment', 'genwooc' ),
+ 				'label' => __( 'Image Alignment', 'gencwooc' ),
  				'options' => array(
- 					''            => __( 'None', 'genwooc' ),
- 					'alignright'  => __( 'Align Right', 'genwooc' ),
- 					'alignleft'   => __( 'Align Left', 'genwooc' ),
- 					'aligncenter' => __( 'Align Center', 'genwooc' ),
+ 					''            => __( 'None', 'gencwooc' ),
+ 					'alignright'  => __( 'Align Right', 'gencwooc' ),
+ 					'alignleft'   => __( 'Align Left', 'gencwooc' ),
+ 					'aligncenter' => __( 'Align Center', 'gencwooc' ),
  				),
  			),
  			'show_title' => array(
  				'type' => 'checkbox',
  				'std'  => absint( $this->defaults['show_title'] ),
- 				'label' => __( 'Show Title?', 'genwooc' ),
+ 				'label' => __( 'Show Title?', 'gencwooc' ),
  			),
 			'show_add_to_cart' => array(
 				'type' => 'checkbox',
 				'std'  => absint( $this->defaults['show_add_to_cart'] ),
-				'label' => __( 'Show Add to Cart Button?', 'genwooc' ),
+				'label' => __( 'Show Add to Cart Button?', 'gencwooc' ),
 			),
 			'show_price' => array(
 				'type' => 'checkbox',
 				'std'  => absint( $this->defaults['show_price'] ),
-				'label' => __( 'Show Price?', 'genwooc' ),
+				'label' => __( 'Show Price?', 'gencwooc' ),
 			),
  			'more_from_category' => array(
  				'type' => 'checkbox',
  				'std'  => absint( $this->defaults['more_from_category'] ),
- 				'label' => __( 'Show Category Archive Link?', 'genwooc' ),
+ 				'label' => __( 'Show Category Archive Link?', 'gencwooc' ),
  			),
  			'more_from_category_text' => array(
  				'type' => 'text',
 				'std'  => esc_html( $this->defaults['more_from_category_text'] ),
- 				'label' => __( 'Link Text:', 'genwooc' ),
+ 				'label' => __( 'Link Text:', 'gencwooc' ),
  			),
  		);
 
@@ -222,7 +221,7 @@
 
  		$cats = get_terms( 'product_cat' );
  		$options = array(
- 			'' => __( 'All Categories', 'genwooc' ),
+ 			'' => __( 'All Categories', 'gencwooc' ),
  		);
 
  		if ( ! empty( $cats ) && ! is_wp_error( $cats ) ) {
@@ -254,6 +253,44 @@
  		return $options;
 
  	}
+
+    /**
+     * Helper function to determine if the current post is at the start of a new column;
+     *
+     * @since 0.9.9
+     *
+     * @param  string  $column String describing the column type.
+     * @param  int     $count  Integer showing the current product count.
+     * @return boolean         True if the current post is at the start of a new column.
+     */
+    public function is_new_column( $column, $count ) {
+
+        if ($count === 1) {
+            return true;
+        }
+
+        switch ( $column ) {
+            case 'one-half':
+                if ($count === 3) {
+                    return true;
+                }
+            case 'one-third':
+                if ($count === 4) {
+                    return true;
+                }
+            case 'one-fourth':
+                if ($count === 5) {
+                    return true;
+                }
+            case 'one-sixth':
+                if ($count === 7) {
+                    return true;
+                }
+            default:
+                return false;
+        }
+
+    }
 
     /**
      * Main function to retrieve a WP_Query object with appropriate arguments passed in from the instance.
@@ -340,7 +377,7 @@
  	/**
  	 * Echo the widget content.
  	 *
- 	 * @since 0.1.8
+ 	 * @since 0.9.9
  	 *
  	 * @global WP_Query $product Product (post) object.
  	 *
@@ -352,20 +389,32 @@
 
 		$this->widget_start( $args, $instance );
 
-		if ( isset( $instance['columns'] ) && ! empty( $instance['columns'] ) ) {
-			printf( '<div class="%s">', $instance['columns'] );
-		}
-
-		$products = $this->get_featured_products( $instance );
+		$products   = $this->get_featured_products( $instance );
+        $count      = 0;
+        $columns_on = isset( $instance['columns'] ) && ! empty( $instance['columns'] );
 
  		if ( $products && $products->have_posts() ) {
  			while ( $products->have_posts() ) {
  				$products->the_post();
  				global $product;
+                $count++;
+
+                if ( $columns_on ) {
+                    
+                    if ( $this->is_new_column( $instance['columns'], $count ) ) {
+                        $first = 'first';
+                        $count = 1;
+                    } else {
+                        $first = '';
+                    }
+
+                    printf( '<div class="%s %s">', $instance['columns'], $first );
+
+                }
 
  				genesis_markup( array(
  					'open'    => '<article %s>',
- 					'context' => 'entry-widget',
+ 					'context' => 'entry-widget'
  				) );
 
  				$image = genesis_get_image( array(
@@ -376,11 +425,10 @@
  				) );
 
  				if ( $image && $instance['show_image'] ) {
- 					$role = empty( $instance['show_title'] ) ? '' : 'aria-hidden="true"';
 					if ( $instance['link_image'] ) {
-						printf( '<a href="%s" class="%s" %s>%s</a>', get_permalink(), esc_attr( $instance['image_alignment'] ), $role, wp_make_content_images_responsive( $image ) );
+						printf( '<a href="%s" class="%s">%s</a>', get_permalink(), esc_attr( $instance['image_alignment'] . ' entry-image-wrap' ), wp_make_content_images_responsive( $image ) );
 					} else {
-						printf( '<div class="%s" %s>%s</div>', esc_attr( $instance['image_alignment'] ), $role, wp_make_content_images_responsive( $image ) );
+						printf( '<div class="%s">%s</div>', esc_attr( $instance['image_alignment'] . ' entry-image-wrap' ), wp_make_content_images_responsive( $image ) );
 					}
  				}
 
@@ -390,7 +438,7 @@
 
  					if ( ! empty( $instance['show_title'] ) ) {
 
- 						$title = get_the_title() ? get_the_title() : __( '(no title)', 'genwooc' );
+ 						$title = get_the_title() ? get_the_title() : __( '(no title)', 'gencwooc' );
 
  						/**
  						 * Filter the featured post widget title.
@@ -455,12 +503,12 @@
 
  				}
 
-				if ( $instance['show_add_to_cart'] ) {
-					woocommerce_template_loop_add_to_cart( $product->ID );
+                if ( $instance['show_price'] && $product->get_price_html() ) {
+					printf( '<span class="price">%s</span>', $product->get_price_html() );
 				}
 
-				if ( $instance['show_price'] && $product->get_price_html() ) {
-					printf( '<span class="price">%s</span>', $product->get_price_html() );
+				if ( $instance['show_add_to_cart'] ) {
+					woocommerce_template_loop_add_to_cart( $product->ID );
 				}
 
 				genesis_markup( array(
@@ -468,13 +516,17 @@
  					'context' => 'entry-widget',
  				) );
 
+                if ( $columns_on ) {
+                    echo '</div>';
+                }
+
  			}
 
  		}
 
-		if ( isset( $instance['columns'] ) && ! empty( $instance['columns'] ) ) {
-			echo '</div>';
-		}
+		// if ( isset( $instance['columns'] ) && ! empty( $instance['columns'] ) ) {
+		// 	echo '</div>';
+		// }
 
         if ( $instance['more_from_category'] ) {
             $cat = get_term( array( 'name' => $instance['product_cat'] ) );
@@ -495,7 +547,7 @@
 
  }
 
- add_action( 'widgets_init', 'genwooc_register_featured_products_widget' );
- function genwooc_register_featured_products_widget() {
- 	register_widget( 'Genwooc_Featured_Products' );
+ add_action( 'widgets_init', 'gencwooc_register_featured_products_widget' );
+ function gencwooc_register_featured_products_widget() {
+ 	register_widget( 'Gencwooc_Featured_Products' );
  }
