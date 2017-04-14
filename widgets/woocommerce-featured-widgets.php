@@ -24,6 +24,8 @@
  	 */
  	protected $defaults;
 
+    protected $classes;
+
  	/**
  	 * Constructor. Set the default widget options and create widget.
  	 *
@@ -394,34 +396,35 @@
         $columns_on = isset( $instance['columns'] ) && ! empty( $instance['columns'] );
 
  		if ( $products && $products->have_posts() ) {
- 			while ( $products->have_posts() ) {
- 				$products->the_post();
- 				global $product;
+            echo '<ul class="featured-products-list">';
+ 			while ( $products->have_posts() ) { $products->the_post();
+
+                global $product;
                 $count++;
 
                 if ( $columns_on ) {
-                    
+
+                    $classes   = [];
+                    $classes[] = $instance['columns'];
+
                     if ( $this->is_new_column( $instance['columns'], $count ) ) {
-                        $first = 'first';
+                        $classes[] = 'first';
                         $count = 1;
-                    } else {
-                        $first = '';
                     }
 
-                    printf( '<div class="%s %s">', $instance['columns'], $first );
+                    $classes = join(' ', $classes);
 
+                    echo "<li class=\"entry-product {$classes}\">";
+
+                } else {
+                    echo '<li class="entry-product">';
                 }
-
- 				genesis_markup( array(
- 					'open'    => '<article %s>',
- 					'context' => 'entry-widget'
- 				) );
 
  				$image = genesis_get_image( array(
  					'format'  => 'html',
  					'size'    => $instance['image_size'],
- 					'context' => 'featured-product-widget',
- 					'attr'    => genesis_parse_attr( 'entry-image-widget', array ( 'alt' => get_the_title() ) ),
+ 					'context' => 'featured-product-image',
+ 					'attr'    => genesis_parse_attr( 'featured-product-image', array ( 'alt' => get_the_title() ) ),
  				) );
 
  				if ( $image && $instance['show_image'] ) {
@@ -487,7 +490,7 @@
  						$header .= genesis_markup( array(
  							'open'    => "<{$heading} %s>",
  							'close'   => "</{$heading}>",
- 							'context' => 'entry-title-widget',
+ 							'context' => 'entry-product-title',
  							'content' => sprintf( '<a href="%s">%s</a>', get_permalink(), $title ),
  							'echo'    => false,
  						) );
@@ -497,7 +500,7 @@
  					genesis_markup( array(
  						'open'    => '<header %s>',
  						'close'   => '</header>',
- 						'context' => 'entry-header-widget',
+ 						'context' => 'entry-product-header',
  						'content' => $header,
  					) );
 
@@ -511,16 +514,10 @@
 					woocommerce_template_loop_add_to_cart( $product->ID );
 				}
 
-				genesis_markup( array(
- 					'close'   => '</article>',
- 					'context' => 'entry-widget',
- 				) );
-
-                if ( $columns_on ) {
-                    echo '</div>';
-                }
+                echo '</li>';
 
  			}
+            echo '</ul>';
 
  		}
 
