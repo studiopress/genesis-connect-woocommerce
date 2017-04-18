@@ -24,8 +24,6 @@
  	 */
  	protected $defaults;
 
-    protected $classes;
-
  	/**
  	 * Constructor. Set the default widget options and create widget.
  	 *
@@ -50,7 +48,6 @@
 			'show_image'              => 1,
 			'image_size'              => 'thumbnail',
 			'link_image'              => 1,
-			'image_alignment'         => '',
 			'show_title'              => 1,
 			'show_add_to_cart'        => 1,
 			'show_price'              => 1,
@@ -105,11 +102,11 @@
 				'std'  => esc_html( $this->defaults['columns'] ),
 				'label' => __( 'Product Columns', 'gencwooc' ),
 				'options' => array(
-					'' => __( 'None', 'gencwooc' ),
-					'one-half'   => __( 'One-Half', 'gencwooc' ),
-					'one-third'  => __( 'One-Third', 'gencwooc' ),
-					'one-fourth' => __( 'One-Fourth', 'gencwooc' ),
-					'one-sixth'  => __( 'One-Sixth', 'gencwooc' ),
+					''           => __( 'One Column', 'gencwooc' ),
+					'one-half'   => __( 'Two Columns', 'gencwooc' ),
+					'one-third'  => __( 'Three Columns', 'gencwooc' ),
+					'one-fourth' => __( 'Four Columns', 'gencwooc' ),
+					'one-sixth'  => __( 'Six Columns', 'gencwooc' ),
 				),
 			),
  			'orderby' => array(
@@ -158,17 +155,6 @@
 				'std'  => absint( $this->defaults['link_image'] ),
 				'label' => __( 'Link Product Image?', 'gencwooc' ),
 			),
- 			'image_alignment' => array(
- 				'type' => 'select',
- 				'std'  => esc_html( $this->defaults['image_alignment'] ),
- 				'label' => __( 'Image Alignment', 'gencwooc' ),
- 				'options' => array(
- 					''            => __( 'None', 'gencwooc' ),
- 					'alignright'  => __( 'Align Right', 'gencwooc' ),
- 					'alignleft'   => __( 'Align Left', 'gencwooc' ),
- 					'aligncenter' => __( 'Align Center', 'gencwooc' ),
- 				),
- 			),
  			'show_title' => array(
  				'type' => 'checkbox',
  				'std'  => absint( $this->defaults['show_title'] ),
@@ -300,7 +286,7 @@
      * @param  array  $instance Instance arguments to be used in the query.
      * @return object           New WP_Query object to be looped through.
      */
- 	public function get_featured_products( $instance ) {
+ 	public function get_featured_products( $args, $instance ) {
  		$cat     = ! empty( $instance['product_cat'] )    ? sanitize_title( $instance['product_cat'] ) : $this->settings['product_cat']['std'];
  		$count   = ! empty( $instance['product_num'] )    ? absint( $instance['product_num'] )         : $this->settings['product_num']['std'];
  		$offset  = ! empty( $instance['product_offset'] ) ? absint( $instance['product_offset'] )      : $this->settings['product_offset']['std'];
@@ -389,15 +375,23 @@
  	 */
  	public function widget( $args, $instance ) {
 
-		$this->widget_start( $args, $instance );
+        if ( $this->get_cached_widget( $args ) ) {
+            return;
+        }
 
-		$products   = $this->get_featured_products( $instance );
+        ob_start();
+
+        $instance   = wp_parse_args( $instance, $this->defaults );
         $count      = 0;
         $columns_on = isset( $instance['columns'] ) && ! empty( $instance['columns'] );
 
- 		if ( $products && $products->have_posts() ) {
+ 		if ( ( $products = $this->get_featured_products( $args, $instance ) ) && $products->have_posts() ) {
+            $this->widget_start( $args, $instance );
+
             echo '<ul class="featured-products-list">';
- 			while ( $products->have_posts() ) { $products->the_post();
+
+ 			while ( $products->have_posts() ) {
+                $products->the_post();
 
                 global $product;
                 $count++;
@@ -429,9 +423,9 @@
 
  				if ( $image && $instance['show_image'] ) {
 					if ( $instance['link_image'] ) {
-						printf( '<a href="%s" class="%s">%s</a>', get_permalink(), esc_attr( $instance['image_alignment'] . ' entry-image-wrap' ), wp_make_content_images_responsive( $image ) );
+						printf( '<a href="%s" class="entry-image-wrap">%s</a>', get_permalink(), wp_make_content_images_responsive( $image ) );
 					} else {
-						printf( '<div class="%s">%s</div>', esc_attr( $instance['image_alignment'] . ' entry-image-wrap' ), wp_make_content_images_responsive( $image ) );
+						printf( '<div class="entry-image-wrap">%s</div>', wp_make_content_images_responsive( $image ) );
 					}
  				}
 
@@ -464,8 +458,6 @@
  						 *                                           shown, false otherwise.
                          *     @type bool   $show_hidden             True if hidden products should be
  						 *                                           shown, false otherwise.
- 						 *     @type string $image_alignment         Image alignment: `alignnone`,
- 						 *                                           `alignleft`, `aligncenter` or `alignright`.
  						 *     @type string $image_size              Name of the image size.
  						 *     @type bool   $show_title              True if featured page title should
  						 *                                           be shown, false otherwise.
@@ -517,28 +509,27 @@
                 echo '</li>';
 
  			}
+
             echo '</ul>';
 
+            if ( $instance['more_from_category'] ) {
+                $cat = get_term( array( 'name' => $instance['product_cat'] ) );
+                printf(
+     				'<div class="clearfix"></div><p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
+     				esc_url( get_term_link( $cat->term_taxonomy_id ) ),
+     				esc_attr( $cat->name ),
+                    esc_html( $instance['more_from_category_text'] )
+     			);
+     		}
+
+    		$this->widget_end( $args );
+
  		}
-
-		// if ( isset( $instance['columns'] ) && ! empty( $instance['columns'] ) ) {
-		// 	echo '</div>';
-		// }
-
-        if ( $instance['more_from_category'] ) {
-            $cat = get_term( array( 'name' => $instance['product_cat'] ) );
-            printf(
- 				'<div class="clearfix"></div><p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
- 				esc_url( get_term_link( $cat->term_taxonomy_id ) ),
- 				esc_attr( $cat->name ),
-                esc_html( $instance['more_from_category_text'] )
- 			);
- 		}
-
-		$this->widget_end( $args );
 
  		// Restore original query.
- 		wp_reset_query();
+ 		wp_reset_postdata();
+
+        echo $this->cache_widget( $args, ob_get_clean() );
 
  	}
 
