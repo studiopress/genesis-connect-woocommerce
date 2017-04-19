@@ -330,7 +330,7 @@
 
         ob_start();
 
-        $instance   = wp_parse_args( $instance, $this->defaults );
+        $instance = wp_parse_args( $instance, $this->defaults );
 
  		if ( ( $products = $this->get_featured_products( $args, $instance ) ) && $products->have_posts() ) {
             $this->widget_start( $args, $instance );
@@ -439,7 +439,7 @@
 				}
 
 				if ( $instance['show_add_to_cart'] ) {
-					woocommerce_template_loop_add_to_cart( $product->ID );
+                    woocommerce_template_loop_add_to_cart( $product->ID );
 				}
 
                 genesis_markup( array(
@@ -457,7 +457,7 @@
             if ( $instance['more_from_category'] ) {
                 $cat = get_term( array( 'name' => $instance['product_cat'] ) );
                 printf(
-     				'<div class="clearfix"></div><p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
+     				'<p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
      				esc_url( get_term_link( $cat->term_taxonomy_id ) ),
      				esc_attr( $cat->name ),
                     esc_html( $instance['more_from_category_text'] )
