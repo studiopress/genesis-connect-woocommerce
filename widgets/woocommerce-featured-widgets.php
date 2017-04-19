@@ -40,7 +40,6 @@
 			'count'                   => 8,
 			'offset'                  => 0,
 			'show_type'               => '',
-			'columns'                 => '',
 			'orderby'                 => 'date',
 			'order'                   => 'desc',
 			'show_free'               => 0,
@@ -97,18 +96,6 @@
                     'onsale'   => __( 'On-sale products', 'gencwooc' ),
                  ),
  			),
-			'columns' => array(
-				'type' => 'select',
-				'std'  => esc_html( $this->defaults['columns'] ),
-				'label' => __( 'Product Columns', 'gencwooc' ),
-				'options' => array(
-					''           => __( 'One Column', 'gencwooc' ),
-					'one-half'   => __( 'Two Columns', 'gencwooc' ),
-					'one-third'  => __( 'Three Columns', 'gencwooc' ),
-					'one-fourth' => __( 'Four Columns', 'gencwooc' ),
-					'one-sixth'  => __( 'Six Columns', 'gencwooc' ),
-				),
-			),
  			'orderby' => array(
                  'type'  => 'select',
                  'std'   => esc_html( $this->defaults['orderby'] ),
@@ -243,44 +230,6 @@
  	}
 
     /**
-     * Helper function to determine if the current post is at the start of a new column;
-     *
-     * @since 0.9.9
-     *
-     * @param  string  $column String describing the column type.
-     * @param  int     $count  Integer showing the current product count.
-     * @return boolean         True if the current post is at the start of a new column.
-     */
-    public function is_new_column( $column, $count ) {
-
-        if ($count === 1) {
-            return true;
-        }
-
-        switch ( $column ) {
-            case 'one-half':
-                if ($count === 3) {
-                    return true;
-                }
-            case 'one-third':
-                if ($count === 4) {
-                    return true;
-                }
-            case 'one-fourth':
-                if ($count === 5) {
-                    return true;
-                }
-            case 'one-sixth':
-                if ($count === 7) {
-                    return true;
-                }
-            default:
-                return false;
-        }
-
-    }
-
-    /**
      * Main function to retrieve a WP_Query object with appropriate arguments passed in from the instance.
      *
      * @param  array  $instance Instance arguments to be used in the query.
@@ -382,37 +331,24 @@
         ob_start();
 
         $instance   = wp_parse_args( $instance, $this->defaults );
-        $count      = 0;
-        $columns_on = isset( $instance['columns'] ) && ! empty( $instance['columns'] );
 
  		if ( ( $products = $this->get_featured_products( $args, $instance ) ) && $products->have_posts() ) {
             $this->widget_start( $args, $instance );
 
-            echo '<ul class="featured-products-list">';
+            genesis_markup( array(
+                'open'    => '<ul %s>',
+                'context' => 'featured-products-list',
+            ));
 
  			while ( $products->have_posts() ) {
                 $products->the_post();
 
                 global $product;
-                $count++;
 
-                if ( $columns_on ) {
-
-                    $classes   = [];
-                    $classes[] = $instance['columns'];
-
-                    if ( $this->is_new_column( $instance['columns'], $count ) ) {
-                        $classes[] = 'first';
-                        $count = 1;
-                    }
-
-                    $classes = join(' ', $classes);
-
-                    echo "<li class=\"entry-product {$classes}\">";
-
-                } else {
-                    echo '<li class="entry-product">';
-                }
+                genesis_markup(array(
+                    'open'    => '<li %s>',
+                    'context' => 'entry-product',
+                ));
 
  				$image = genesis_get_image( array(
  					'format'  => 'html',
@@ -494,7 +430,7 @@
  						'close'   => '</header>',
  						'context' => 'entry-product-header',
  						'content' => $header,
- 					) );
+ 					));
 
  				}
 
@@ -506,11 +442,17 @@
 					woocommerce_template_loop_add_to_cart( $product->ID );
 				}
 
-                echo '</li>';
+                genesis_markup( array(
+                    'close'   => '</li>',
+                    'context' => 'entry-product',
+                ));
 
  			}
 
-            echo '</ul>';
+            genesis_markup( array(
+                'close'   => '</ul>',
+                'context' => 'featured-products-list',
+            ));
 
             if ( $instance['more_from_category'] ) {
                 $cat = get_term( array( 'name' => $instance['product_cat'] ) );
