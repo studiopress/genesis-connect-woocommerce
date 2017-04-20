@@ -454,8 +454,10 @@
                 'context' => 'featured-products-list',
             ));
 
-            if ( $instance['more_from_category'] ) {
-                $cat = get_term( array( 'name' => $instance['product_cat'] ) );
+            if ( $instance['more_from_category'] && $instance['product_cat'] !== '' ) {
+
+                $cat = get_term_by( 'name', $instance['product_cat'], 'product_cat' );
+
                 printf(
      				'<p class="more-from-category"><a href="%1$s" title="%2$s">%3$s</a></p>',
      				esc_url( get_term_link( $cat->term_taxonomy_id ) ),
