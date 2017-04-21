@@ -222,12 +222,9 @@
 
  		foreach( $images as $size => $data ) {
 
-            $width  = $data['width'] == 0 ? __( 'Auto', 'gencwooc' ) : $data['width'];
-            $height = $data['height'] == 0 ? __( 'Auto', 'gencwooc' ) : $data['height'];
-
  			$name = sprintf( '%s: %s x %s', $size, $width, $height );
  			$options[$size] = $name;
-            
+
  		}
 
  		return $options;
