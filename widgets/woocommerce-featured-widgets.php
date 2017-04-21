@@ -221,8 +221,13 @@
  		$images = genesis_get_image_sizes();
 
  		foreach( $images as $size => $data ) {
- 			$name = sprintf( '%s: %s x %s', $size, $data['width'], $data['height'] );
+
+            $width  = $data['width'] == 0 ? __( 'Auto', 'gencwooc' ) : $data['width'];
+            $height = $data['height'] == 0 ? __( 'Auto', 'gencwooc' ) : $data['height'];
+
+ 			$name = sprintf( '%s: %s x %s', $size, $width, $height );
  			$options[$size] = $name;
+            
  		}
 
  		return $options;
