@@ -65,9 +65,9 @@ add_filter( 'genesis_archive_crumb', 'gencwooc_get_archive_crumb_filter', 10, 2 
 function gencwooc_get_archive_crumb_filter( $crumb, $args ) {
 
 	/** Are we on the product archive page? */
-	if ( is_post_type_archive( 'product') && get_option( 'page_on_front' ) !== woocommerce_get_page_id( 'shop' ) ) {
+	if ( is_post_type_archive( 'product') && get_option( 'page_on_front' ) !== wc_get_page_id( 'shop' ) ) {
 
-		$shop_id = woocommerce_get_page_id( 'shop' );
+		$shop_id = wc_get_page_id( 'shop' );
 
 		$shop_name = $shop_id ? get_the_title( $shop_id ) : ucwords( get_option('woocommerce_shop_slug') );
 
@@ -95,7 +95,7 @@ function gencwooc_get_archive_crumb_filter( $crumb, $args ) {
 		/** Should we prepend crumb with 'shop' page link? */
 		/** See Dashboard > WooC Settings > Pages tab */
 		$shop_url = get_option( 'woocommerce_prepend_shop_page_to_urls' );
-		$shop_id = woocommerce_get_page_id( 'shop' );
+		$shop_id = wc_get_page_id( 'shop' );
 		$shop_title = get_the_title( $shop_id );
 
 		if ( 'yes' == $shop_url && $shop_id && get_option( 'page_on_front' ) !== $shop_id )
@@ -167,7 +167,7 @@ function gencwooc_get_single_crumb( $crumb, $args ) {
 		/** Should we prepend crumb with 'shop' page link? */
 		/** See Dashboard > WooC Settings > Pages tab */
 		$shop_url = get_option( 'woocommerce_prepend_shop_page_to_urls' );
-		$shop_id = woocommerce_get_page_id( 'shop' );
+		$shop_id = wc_get_page_id( 'shop' );
 		$shop_title = get_the_title( $shop_id );
 
 		if ( 'yes' == $shop_url && $shop_id && get_option( 'page_on_front' ) !== $shop_id )
