@@ -32,7 +32,7 @@
  *
  * @see genesis/lib/classes/breadcrumb.php v1.8
  * @see woocommerce/templates/shop/breadcrumb.php v1.4.4
- *
+ * 
  * @TODO Replace with subclass of Genesis_Breadcrumb?
  */
 
