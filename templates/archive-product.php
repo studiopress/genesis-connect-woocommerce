@@ -20,6 +20,9 @@
 /** Remove default Genesis loop */
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
+/** Remove Genesis archive title/description */
+remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+
 /** Remove WooCommerce breadcrumbs */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
@@ -56,6 +59,7 @@ function genesiswooc_archive_layout( $layout ) {
 	$layout = get_post_meta( $shop_page_id, '_genesis_layout', true );
 
 	return $layout;
+
 }
 
 add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
@@ -77,12 +81,12 @@ add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
 function genesiswooc_archive_product_loop() {
 
 	global $woocommerce;
-	
+
 	$new = version_compare( $woocommerce->version, '1.6.0', '>=' );
-	
+
 	if ( $new )
 		genesiswooc_content_product();
-		
+
 	else
 		genesiswooc_product_archive();
 }
