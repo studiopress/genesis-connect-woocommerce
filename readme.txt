@@ -15,7 +15,7 @@ To allow easy customization of these templates, and ensure that you do not lose 
 
 Additionally, the plugin makes [Genesis Simple Sidebars](http://wordpress.org/extend/plugins/genesis-simple-sidebars/) and [Genesis Simple Menus](http://wordpress.org/extend/plugins/genesis-simple-menus/) compatible with WooCommerce.
 
-**This version is compatible with WooCommerce 2.1+**
+**This version is compatible with WooCommerce 3.0+**
 
 == Installation ==
 
