@@ -4,7 +4,7 @@
  *
  * @package genesis_connect_woocommerce
  * @version 0.9.8
- 
+
  *
  * @since 0.9.0
  *
@@ -61,7 +61,7 @@ function gencwooc_gsm_theme_mod( $mods ) {
 	/** Post meta key as per GSM 0.1.4 */
 	$field_name = '_gsm_menu';
 
-	$shop_id = woocommerce_get_page_id( 'shop' );
+	$shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
 
 	if ( is_post_type_archive( 'product' ) && $_menu = get_post_meta( $shop_id, $field_name, true ) )
 		$mods['secondary'] = (int) $_menu;

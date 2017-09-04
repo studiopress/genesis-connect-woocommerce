@@ -87,7 +87,7 @@ function gencwooc_ss_handler() {
 function gencwooc_ss_do_sidebar() {
 
 	$bar = '_ss_sidebar';
-	$shop_id = woocommerce_get_page_id( 'shop' );
+	$shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
 
 	if ( is_post_type_archive( 'product' ) && $_bar = get_post_meta( $shop_id, $bar, true ) ) {
 
@@ -124,7 +124,7 @@ function gencwooc_ss_do_sidebar() {
 function gencwooc_ss_do_sidebar_alt() {
 
 	$bar = '_ss_sidebar_alt';
-	$shop_id = woocommerce_get_page_id( 'shop' );
+	$shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
 
 	if ( is_post_type_archive( 'product' ) && $_bar = get_post_meta( $shop_id, $bar, true ) ) {
 		dynamic_sidebar( $_bar );
