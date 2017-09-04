@@ -58,9 +58,15 @@ add_action( 'after_setup_theme', 'gencwooc_setup' );
  */
 function gencwooc_setup() {
 
-	/** Fail silently if WooCommerce is not activated */
-	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+	// If WooCommerce isn't active, return early.
+	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 		return;
+	}
+
+	// If Genesis isn't active, return early.
+	if ( ! function_exists( 'genesis' ) ) {
+		return;
+	}
 
 	/** Environment is OK, let's go! */
 
