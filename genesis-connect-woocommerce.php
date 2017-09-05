@@ -40,7 +40,6 @@ function gencwooc_activation() {
 
 /** Define the Genesis Connect for WooCommerce constants */
 define( 'GCW_TEMPLATE_DIR', dirname( __FILE__ ) . '/templates' );
-define( 'GCW_WIDGETS_DIR', dirname( __FILE__ ) . '/widgets' );
 define( 'GCW_LIB_DIR', dirname( __FILE__ ) . '/lib');
 define( 'GCW_SP_DIR', dirname( __FILE__ ) . '/sp-plugins-integration' );
 
@@ -77,10 +76,19 @@ function gencwooc_setup() {
 
 	// Load posts per page option
 	require_once( GCW_LIB_DIR . '/posts-per-page.php' );
+	
+	
+	$ver_3 = version_compare( $woocommerce->version, '3.0', '>=' );
 
 	/** Load modified Genesis breadcrumb filters and callbacks */
-	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs') )
+	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs') && ! $ver_3 )
+	
 		require_once( GCW_LIB_DIR . '/breadcrumb.php' );
+		
+	elseif ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs') && $ver_3 )
+	
+		require_once( GCW_LIB_DIR . '/breadcrumb_v3.php' );
+
 
 	/** Ensure WooCommerce 2.0+ compatibility */
 	add_theme_support( 'woocommerce' );
@@ -90,10 +98,6 @@ function gencwooc_setup() {
 
 	/** Add Studiopress plugins support */
 	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
-
-	/** Add Widgets */
-	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) )
-		require_once( GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php' );
 
 	/** Take control of shop template loading */
 	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );

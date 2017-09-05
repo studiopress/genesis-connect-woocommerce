@@ -249,14 +249,25 @@ function genesiswooc_content_product() {
 		do_action( 'woocommerce_before_main_content' );
 	?>
 
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) && ! is_category() && ! is_tag() && ! is_tax() ) : ?>
 
 			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
 
 		<?php endif; ?>
-				
+			
+			
+		<?php /* NOTE:
+		
+		 	If Taxonomy description is filled in AND Genesis Archive Intro Text are filled in, both display
+		 	Workaround: don't fill in WooCommerce
+		 	
+		 	TODO: check if one is filled in and display that overriding the next (like is should work)
+		 
+		 */
+		 ?>
+		
 		<?php do_action( 'woocommerce_archive_description' ); ?>
-				
+						
 		<?php if ( have_posts() ) : ?>
 
 			<?php
