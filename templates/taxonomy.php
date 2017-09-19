@@ -19,6 +19,9 @@
 /** Remove default Genesis loop */
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
+/** Remove Genesis archive title/description */
+remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+
 /** Remove WooCommerce breadcrumbs */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
@@ -48,12 +51,12 @@ add_action( 'genesis_loop', 'genesiswooc_product_taxonomy_loop' );
 function genesiswooc_product_taxonomy_loop() {
 
 	global $woocommerce;
-	
+
 	$new = version_compare( $woocommerce->version, '1.6.0', '>=' );
-	
+
 	if ( $new )
 		genesiswooc_content_product();
-		
+
 	else
 		genesiswooc_product_taxonomy();
 
