@@ -222,8 +222,8 @@
 
  		foreach( $images as $size => $data ) {
 
- 			$name = sprintf( '%s: %s x %s', $size, $width, $height );
- 			$options[$size] = $name;
+ 			$name = sprintf( '%s: %s x %s', $size, $data['width'], $data['height'] );
+ 			$options[ $size ] = $name;
 
  		}
 
