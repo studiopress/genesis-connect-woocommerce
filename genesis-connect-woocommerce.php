@@ -85,8 +85,8 @@ function gencwooc_setup() {
 	/** Ensure WooCommerce 2.0+ compatibility */
 	add_theme_support( 'woocommerce' );
 
-	/** Add Genesis Layout and SEO options to Product edit screen */
-	add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-seo' ) );
+	/** Add Genesis Layout, Genesis Scripts and SEO options to Product edit screen */
+	add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-scripts', 'genesis-seo' ) );
 
 	/** Add Studiopress plugins support */
 	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
