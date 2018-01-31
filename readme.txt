@@ -137,6 +137,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
+* Add Featured Products Widget
 
 = 0.9.9 =
 * Released 12 January 2017
