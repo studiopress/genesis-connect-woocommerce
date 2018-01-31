@@ -135,6 +135,9 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 == Changelog ==
 
+= 0.9.10 =
+* Update theme templates for WooCommerce 3.3
+
 = 0.9.9 =
 * Released 12 January 2017
 * Adds the Genesis Connect Addons tab to the WooCommerce settings page.
