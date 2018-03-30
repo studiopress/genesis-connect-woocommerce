@@ -19,8 +19,28 @@
 /** Remove default Genesis loop */
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
-/** Remove Genesis archive title/description */
-remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+add_action( 'genesis_archive_title_descriptions', 'genesiswooc_show_archive_heading' );
+/**
+ * Show the Genesis archive headline and intro text if set.
+ *
+ * Use the WooCommerce archive title and description otherwise, displaying
+ * them within the Genesis title and description archive markup.
+ */
+function genesiswooc_show_archive_heading() {
+
+	// Remove the usual WordPress archive title and description.
+	add_filter( 'woocommerce_show_page_title', '__return_false' );
+	remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description' );
+	remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description' );
+
+	$genesis_archive_intro  = get_term_meta( get_queried_object_id(), 'intro_text', true );
+	$wp_archive_description = get_the_archive_description();
+
+	if ( ! $genesis_archive_intro && $wp_archive_description ) {
+		echo $wp_archive_description;
+	}
+
+}
 
 /** Remove WooCommerce breadcrumbs */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
