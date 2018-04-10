@@ -441,7 +441,7 @@
 				}
 
 				if ( $instance['show_add_to_cart'] ) {
-                    woocommerce_template_loop_add_to_cart( $product->ID );
+                    woocommerce_template_loop_add_to_cart( $product->get_id() );
 				}
 
                 genesis_markup( array(
