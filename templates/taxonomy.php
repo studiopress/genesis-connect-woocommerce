@@ -19,8 +19,11 @@
 /** Remove default Genesis loop */
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
-/** Remove Genesis archive title/description */
-remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+/** Remove WooCommerce Page Title */
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+/** Remove WooCommerce taxonomy archive description */
+remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10  );
 
 /** Remove WooCommerce breadcrumbs */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
