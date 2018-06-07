@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Genesis Connect for WooCommerce
-Plugin URI: http://www.studiopress.com/plugins/genesis-connect-woocommerce
+Plugin URI: https://wordpress.org/plugins/genesis-connect-woocommerce/
 Version: 0.9.10
 Author: StudioPress
 Author URI: http://www.studiopress.com/
