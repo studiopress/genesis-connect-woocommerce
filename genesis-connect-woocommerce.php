@@ -43,6 +43,7 @@ function gencwooc_activation() {
 /** Define the Genesis Connect for WooCommerce constants */
 define( 'GCW_TEMPLATE_DIR', dirname( __FILE__ ) . '/templates' );
 define( 'GCW_LIB_DIR', dirname( __FILE__ ) . '/lib');
+define( 'GCW_WIDGETS_DIR', dirname( __FILE__ ) . '/widgets' );
 define( 'GCW_SP_DIR', dirname( __FILE__ ) . '/sp-plugins-integration' );
 
 
@@ -85,6 +86,11 @@ function gencwooc_setup() {
 
 	/** Add Studiopress plugins support */
 	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
+
+	/** Add Widgets */
+	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) ) {
+		require_once( GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php' );
+	}
 
 	/** Take control of shop template loading */
 	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );
