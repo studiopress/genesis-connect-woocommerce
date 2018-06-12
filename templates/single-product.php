@@ -61,14 +61,14 @@ function gencwooc_single_product_loop() {
 
 		<?php do_action('woocommerce_before_single_product'); ?>
 
-		<div itemscope itemtype="http://schema.org/Product" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 
 			<div class="summary">
-					
+
 				<?php do_action( 'woocommerce_single_product_summary'); ?>
-		
+
 			</div>
 
 			<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
