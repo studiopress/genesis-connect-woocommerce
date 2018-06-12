@@ -4,8 +4,10 @@ Plugin Name: Genesis Connect for WooCommerce
 Plugin URI: https://wordpress.org/plugins/genesis-connect-woocommerce/
 Version: 0.9.10
 Author: StudioPress
-Author URI: http://www.studiopress.com/
+Author URI: https://www.studiopress.com/
 Description: Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
+WC requires at least: 3.3.0
+WC tested up to: 3.4
 
 License: GNU General Public License v2.0 (or later)
 License URI: http://www.opensource.org/licenses/gpl-license.php
