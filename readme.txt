@@ -138,6 +138,8 @@ For the benefit of theme developers and customizers, here is a summary of possib
 = 0.9.11 [Unreleased] =
 * Released XX July 2018.
 * Add WooCommerce version check support.
+* Reinstate Genesis Featured Products widget. (Enable with `add_theme_support( 'gencwooc-featured-products-widget' );`.)
+* Prevent ‘ID was called incorrectly’ error if Genesis Featured Products widget is in use.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
