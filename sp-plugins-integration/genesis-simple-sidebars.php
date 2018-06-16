@@ -76,8 +76,8 @@ function gencwooc_ss_handler() {
  * Checks if we're on the product archive and a GSS sidebar has been
  * assigned in the Shop WP Page editor, then, if both true, loads the relevant
  * GSS sidebar on the Shop Page.
- * If either of the above conditions return false, we hand back control to GSS
- * by executing the normal ss_do_one_sidebar() function.
+ *
+ * If either of the above conditions return false, we load the regular sidebar.
  *
  * @since 0.9.0
  *
@@ -95,11 +95,10 @@ function gencwooc_ss_do_sidebar() {
 
 	} else {
 
-		/** Hand back control to GSS */
-		if ( ! ss_do_one_sidebar( $bar ) )
-			genesis_do_sidebar();
+		genesis_do_sidebar();
 
 	}
+
 }
 
 
@@ -113,8 +112,8 @@ function gencwooc_ss_do_sidebar() {
  * Checks if we're on the product archive and a GSS sidebar has been
  * assigned in the Shop WP Page editor, then, if both true, loads the relevant
  * GSS sidebar on the Shop Page.
- * If either of the above conditions return false, we hand back control to GSS
- * by executing the normal ss_do_one_sidebar_alt() function.
+ *
+ * If either of the above conditions return false, we load the regular alt sidebar.
  *
  * @since 0.9.0
  *
@@ -127,13 +126,13 @@ function gencwooc_ss_do_sidebar_alt() {
 	$shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
 
 	if ( is_post_type_archive( 'product' ) && $_bar = get_post_meta( $shop_id, $bar, true ) ) {
+
 		dynamic_sidebar( $_bar );
 
 	} else {
 
-		/** Hand back control to GSS */
-		if ( ! ss_do_one_sidebar( $bar ) )
-			genesis_do_sidebar_alt();
+		genesis_do_sidebar_alt();
 
 	}
+
 }

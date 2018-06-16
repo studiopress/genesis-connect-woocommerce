@@ -141,6 +141,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Reinstate Genesis Featured Products widget. (Enable with `add_theme_support( 'gencwooc-featured-products-widget' );`.)
 * Prevent ‘ID was called incorrectly’ error if Genesis Featured Products widget is in use.
 * Remove product Microdata to prevent conflict with JSON-LD from WooCommerce 3.
+* Prevent deprecation notice if Genesis Simple Sidebars is in use.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
