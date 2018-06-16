@@ -63,6 +63,11 @@ function gencwooc_setup() {
 	/** Fail silently if WooCommerce is not activated */
 	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
 		return;
+	
+	/** Fail silently if Genesis is not active */
+	if ( 'genesis' != get_option( 'template' ) ) {
+		return;
+	}
 
 	if ( ! function_exists( 'genesis' ) ) {
 		return;
