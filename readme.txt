@@ -146,6 +146,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Prevent blank pages if WooCommerce Shop page is not set. (Thanks, Tim Jensen!)
 * Prevent fatal error on WooCommerce pages if non-Genesis theme or mobile plugin such as WPtouch is active.
 * Add support for Genesis Scripts to products. (Thanks, Graham Washbrook!)
+* The shop page now uses the default site layout if “Default Layout set in Theme Settings” is selected.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3

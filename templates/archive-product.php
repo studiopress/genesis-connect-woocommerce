@@ -33,32 +33,26 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 )
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
-
-/** Get Shop Page ID */
-// @TODO Retained for backwards compatibility with < 1.6.0 WooC installs
-global $shop_page_id;
-$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-
-
 add_filter( 'genesis_pre_get_option_site_layout', 'genesiswooc_archive_layout' );
 /**
- * Manage page layout for the Product archive (Shop) page
+ * Manage page layout for the Product archive (Shop) page.
  *
- * Set the layout in the Genesis layouts metabox in the Page Editor
+ * Set the layout in the Genesis layouts metabox in the Page Editor.
  *
  * @since 0.9.0
  *
- * @param str $layout Genesis layout, eg 'content-sidebar', etc
- * @global string|int $shop_page_id The ID of the Shop WP Page
- * @return str $layout Shop Page layout from postmeta
+ * @param str $layout Current Genesis page layout, such as 'content-sidebar'.
+ * @return str Page layout if set for the shop page, otherwise the default site layout.
  */
 function genesiswooc_archive_layout( $layout ) {
 
-	global $shop_page_id;
+	$post_layout = get_post_meta( wc_get_page_id( 'shop' ), '_genesis_layout', true );
 
-	$layout = get_post_meta( $shop_page_id, '_genesis_layout', true );
+	if ( ! $post_layout || 'default_layout' === $post_layout ) {
+		return $layout;
+	}
 
-	return $layout;
+	return $post_layout;
 
 }
 
