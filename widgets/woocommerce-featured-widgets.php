@@ -42,7 +42,7 @@
 			'show_type'               => '',
 			'orderby'                 => 'date',
 			'order'                   => 'desc',
-			'show_free'               => 0,
+			'hide_free'               => 0,
 			'show_hidden'             => 0,
 			'show_image'              => 1,
 			'image_size'              => 'thumbnail',
@@ -118,7 +118,7 @@
              ),
  			'hide_free' => array(
                  'type'  => 'checkbox',
-                 'std'   => absint( $this->defaults['show_free'] ),
+                 'std'   => absint( $this->defaults['hide_free'] ),
                  'label' => __( 'Hide Free Products', 'gencwooc' ),
              ),
  			'show_hidden' => array(
@@ -292,7 +292,26 @@
                 'operator' => 'NOT IN',
             );
             $query_args['post_parent'] = 0;
-         }
+		 }
+
+		 if ( ! empty( $instance['hide_free'] ) ) {
+			// Meta query ensures price and sale price are not explicitly set
+			// to a zero-like string. Empty pricing fields do not count as
+			// a free product. WooCommerce shows no purchase buttons for those.
+			$query_args['meta_query'][] = array(
+				'relation' => 'AND',
+				array(
+					'key'     => '_price',
+					'value'   => array('0', '0.00', '0,00'),
+					'compare' => 'NOT IN',
+				),
+				array(
+					'key'     => '_sale_price',
+					'value'   => array('0', '0.00', '0,00'),
+					'compare' => 'NOT IN',
+				),
+			);
+		 }
 
  		switch ( $orderby ) {
             case 'price':
