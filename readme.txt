@@ -143,6 +143,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Remove product Microdata to prevent conflict with JSON-LD from WooCommerce 3.
 * Prevent deprecation notice if Genesis Simple Sidebars is in use.
 * The Genesis Featured Products widget now hides products with a price or sale price of '0' if ‘hide free products’ is ticked.
+* Prevent blank pages if WooCommerce Shop page is not set. (Thanks Tim Jensen!)
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
