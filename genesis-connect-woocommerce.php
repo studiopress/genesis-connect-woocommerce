@@ -64,6 +64,9 @@ function gencwooc_setup() {
 	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
 		return;
 
+	if ( ! function_exists( 'genesis' ) ) {
+		return;
+	}
 	/** Environment is OK, let's go! */
 
 	global $woocommerce;
