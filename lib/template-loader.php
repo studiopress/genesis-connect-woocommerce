@@ -63,7 +63,7 @@ function gencwooc_template_loader( $template ) {
 			$template = GCW_TEMPLATE_DIR . '/single-product.php';
 
 	}
-	elseif ( is_post_type_archive( 'product' ) ||  is_page( get_option( 'woocommerce_shop_page_id' ) ) ) {
+	elseif ( is_post_type_archive( 'product' ) ||  is_page( wc_get_page_id( 'shop' ) ) ) {
 
 		$template = locate_template( array( 'woocommerce/archive-product.php' ) );
 
