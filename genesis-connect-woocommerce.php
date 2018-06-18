@@ -15,38 +15,12 @@ License URI: http://www.opensource.org/licenses/gpl-license.php
 Special thanks to Ade Walker (http://www.studiograsshopper.ch/) for his contributions to this plugin.
 */
 
-
-register_activation_hook( __FILE__, 'gencwooc_activation' );
-/**
- * Check the environment when plugin is activated
- *
- * Requirements:
- * - WooCommerce needs to be installed and activated
- *
- * Note: register_activation_hook() isn't run after auto or manual upgrade, only on activation
- * Note: this version of GCW is based on WooCommerce 2.1+
- *
- * @since 0.9.0
- */
-function gencwooc_activation() {
-
-	//* If Genesis is not the active theme, deactivate and die.
-	if ( 'genesis' != get_option( 'template' ) ) {
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'gencwooc' ), 'http://my.studiopress.com/themes/genesis/' ) );
-	}
-
-}
-
-
-
 /** Define the Genesis Connect for WooCommerce constants */
 define( 'GCW_TEMPLATE_DIR', dirname( __FILE__ ) . '/templates' );
 define( 'GCW_LIB_DIR', dirname( __FILE__ ) . '/lib');
+define( 'GCW_ADMIN_DIR', dirname( __FILE__ ) . '/admin');
 define( 'GCW_WIDGETS_DIR', dirname( __FILE__ ) . '/widgets' );
 define( 'GCW_SP_DIR', dirname( __FILE__ ) . '/sp-plugins-integration' );
-
-
 
 add_action( 'after_setup_theme', 'gencwooc_setup' );
 /**
@@ -60,14 +34,22 @@ add_action( 'after_setup_theme', 'gencwooc_setup' );
  */
 function gencwooc_setup() {
 
-	/** Fail silently if WooCommerce is not activated */
-	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
-		return;
-
+	require_once GCW_ADMIN_DIR . '/notices.php';
+	$ready = true;
+	
+	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {		
+		add_action( 'admin_notices', 'gencwooc_woocommerce_notice' );
+		$ready = false;
+	}
+	
 	if ( ! function_exists( 'genesis' ) ) {
+		add_action( 'admin_notices', 'gencwooc_genesis_notice' );
+		$ready = false;
+	}
+
+	if ( ! $ready ) {
 		return;
 	}
-	/** Environment is OK, let's go! */
 
 	global $woocommerce;
 

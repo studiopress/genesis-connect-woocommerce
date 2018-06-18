@@ -147,6 +147,8 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Prevent fatal error on WooCommerce pages if non-Genesis theme or mobile plugin such as WPtouch is active.
 * Add support for Genesis Scripts to products. (Thanks, Graham Washbrook!)
 * The shop page now uses the default site layout if “Default Layout set in Theme Settings” is selected.
+* Show a notice instead of dying if WooCommerce is not active.
+* Show a notice instead of failing silently if a Genesis child theme is not active.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
