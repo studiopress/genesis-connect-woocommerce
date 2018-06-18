@@ -1,0 +1,23 @@
+{
+  "name": "genesis-connect-woocommerce",
+  "title": "Genesis Connect for Woocommerce",
+  "version": "0.9.11",
+  "description": "Plugin that allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copyblogger/genesis-connect-woocommerce.git"
+  },
+  "author": "StudioPress",
+  "bugs": {
+    "url": "https://github.com/copyblogger/genesis-connect-woocommerce/issues"
+  },
+  "homepage": "https://github.com/copyblogger/genesis-connect-woocommerce#readme",
+  "dependencies": {
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-phpcs": "^0.4.0"
+  }
+}
