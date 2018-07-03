@@ -54,6 +54,9 @@ if ( ! defined( 'ABSPATH' ) )
  */
 function gencwooc_template_loader( $template ) {
 
+	if ( class_exists( 'WC_Embed' ) && WC_Embed::is_embedded_product() ) {
+		return $template;
+	}
 
 	if ( is_single() && 'product' == get_post_type() ) {
 
