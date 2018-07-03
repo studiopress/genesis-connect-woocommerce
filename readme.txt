@@ -149,6 +149,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * The shop page now uses the default site layout if “Default Layout set in Theme Settings” is selected.
 * Show a notice instead of dying if WooCommerce is not active.
 * Show a notice instead of failing silently if a Genesis child theme is not active.
+* Use the default template for product oembeds.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3
