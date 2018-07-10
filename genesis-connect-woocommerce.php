@@ -36,14 +36,21 @@ function gencwooc_setup() {
 
 	require_once GCW_ADMIN_DIR . '/notices.php';
 	$ready = true;
-	
-	if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {		
+
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+	}
+
+	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 		add_action( 'admin_notices', 'gencwooc_woocommerce_notice' );
 		$ready = false;
 	}
-	
+
 	if ( ! function_exists( 'genesis' ) ) {
-		add_action( 'admin_notices', 'gencwooc_genesis_notice' );
+		if ( ! is_multisite() ) {
+			add_action( 'admin_notices', 'gencwooc_genesis_notice' );
+		}
+		
 		$ready = false;
 	}
 
@@ -82,11 +89,13 @@ function gencwooc_setup() {
 	add_filter( 'template_include', 'gencwooc_template_loader', 20 );
 
 	/** Integration - Genesis Simple Sidebars */
-	if ( in_array( 'genesis-simple-sidebars/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+	if ( is_plugin_active( 'genesis-simple-sidebars/plugin.php' ) ) {
 		require_once( GCW_SP_DIR . '/genesis-simple-sidebars.php' );
+	}
 
 	/** Integration - Genesis Simple Menus */
-	if ( in_array( 'genesis-simple-menus/simple-menu.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+	if ( is_plugin_active( 'genesis-simple-menus/simple-menu.php' ) ) {
 		require_once( GCW_SP_DIR . '/genesis-simple-menus.php' );
+	}
 
 }
