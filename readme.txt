@@ -150,6 +150,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Show a notice instead of dying if WooCommerce is not active.
 * Show a notice instead of failing silently if a Genesis child theme is not active.
 * Use the default template for product oembeds.
+* Show the Genesis archive headline and intro text on product taxonomy archives if set. Fall back to the archive name and description.
 
 = 0.9.10 =
 * Update theme templates for WooCommerce 3.3

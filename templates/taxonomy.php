@@ -19,8 +19,29 @@
 /** Remove default Genesis loop */
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 
-/** Remove Genesis archive title/description */
-remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+// Remove the WooCommerce archive title and description.
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description' );
+
+add_filter( 'genesis_term_intro_text_output', 'genesiswooc_term_intro_text_output' );
+/**
+ * Fall back to the archive description if no intro text is set.
+ *
+ * @param string $intro_text The default Genesis archive intro text.
+ * @return string Archive intro text, or archive description if no intro text set.
+ *
+ * @since 0.9.11
+ */
+function genesiswooc_term_intro_text_output( $intro_text ) {
+	$wp_archive_description = get_the_archive_description();
+
+	if ( ! $intro_text && $wp_archive_description ) {
+		return $wp_archive_description;
+	}
+
+	return $intro_text;
+}
+
 
 /** Remove WooCommerce breadcrumbs */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
