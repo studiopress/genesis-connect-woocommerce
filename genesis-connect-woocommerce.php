@@ -47,7 +47,10 @@ function gencwooc_setup() {
 	}
 
 	if ( ! function_exists( 'genesis' ) ) {
-		add_action( 'admin_notices', 'gencwooc_genesis_notice' );
+		if ( ! is_multisite() ) {
+			add_action( 'admin_notices', 'gencwooc_genesis_notice' );
+		}
+		
 		$ready = false;
 	}
 
