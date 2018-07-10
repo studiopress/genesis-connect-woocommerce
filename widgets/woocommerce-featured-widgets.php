@@ -302,12 +302,12 @@
 				'relation' => 'AND',
 				array(
 					'key'     => '_price',
-					'value'   => array('0', '0.00', '0,00'),
+					'value'   => array( '0', '00', '000', '0000', '0.00', '0,00' ),
 					'compare' => 'NOT IN',
 				),
 				array(
 					'key'     => '_sale_price',
-					'value'   => array('0', '0.00', '0,00'),
+					'value'   => array( '0', '00', '000', '0000', '0.00', '0,00' ),
 					'compare' => 'NOT IN',
 				),
 			);
