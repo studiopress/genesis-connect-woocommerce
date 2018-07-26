@@ -14,10 +14,13 @@
   },
   "homepage": "https://github.com/copyblogger/genesis-connect-woocommerce#readme",
   "dependencies": {
-    "npm": "^6.1.0"
+    "npm": "^6.2.0"
   },
   "devDependencies": {
     "grunt": "^1.0.3",
-    "grunt-phpcs": "^0.4.0"
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-phpcs": "^0.4.0",
+    "grunt-replace": "^1.0.1"
   }
 }
