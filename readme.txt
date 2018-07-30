@@ -52,10 +52,6 @@ There's no need! Genesis Connect for WooCommerce modifies the default Genesis br
 
 Yes.
 
-= Does it work with Genesis Simple Sidebars? =
-
-Yes.
-
 = How does the plugin handle WooCommerce's CSS? =
 
 Genesis Connect for WooCommerce does not modify WooCommerce's way of working with CSS. By default, WooCommerce provides its own `woocommerce.css` file containing basic styles for the shop pages which is located here: `wp-content/plugins/woocommerce/assets/css/woocommerce.css`.
