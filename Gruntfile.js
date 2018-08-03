@@ -73,7 +73,23 @@ module.exports = function(grunt) {
           dest: '<%= pkg.name %>/'
         }]
       }
-    }
+    },
+
+    // Check 'tested up to' headers against latest WordPress and WooCommerce.
+    wptools: {
+      test_wordpress: {
+        options: {
+          test: 'wordpress',
+          readme: 'README.md',
+        },
+      },
+      test_woocommerce: {
+        options: {
+          test: 'woocommerce',
+          plugin: '<%= pkg.name %>.php',
+        },
+      }
+    },
 
   });
 
@@ -81,6 +97,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-wptools');
   grunt.registerTask('default', ['phpcs']);
   grunt.registerTask('build', ['replace:pluginfile', 'copy:main', 'copy:readme', 'compress:main'])
 };
