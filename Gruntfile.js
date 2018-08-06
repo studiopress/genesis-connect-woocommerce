@@ -99,5 +99,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-wptools');
   grunt.registerTask('default', ['phpcs']);
-  grunt.registerTask('build', ['replace:pluginfile', 'copy:main', 'copy:readme', 'compress:main'])
+  grunt.registerTask('build', ['wptools', 'replace:pluginfile', 'copy:main', 'copy:readme', 'compress:main'])
 };
