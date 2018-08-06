@@ -3,7 +3,7 @@ Contributors: nathanrice, studiopress, studiograsshopper
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 3.3
 Tested up to: 4.9
-Stable tag: 0.9.11
+Stable tag: 1.0
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
@@ -131,8 +131,8 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 == Changelog ==
 
-= 0.9.11 =
-* Released 31 July 2018.
+= 1.0 =
+* Released 7 August 2018.
 * Add WooCommerce version check support.
 * Reinstate Genesis Featured Products widget. (Enable with `add_theme_support( 'gencwooc-featured-products-widget' );`.)
 * Prevent ‘ID was called incorrectly’ error if Genesis Featured Products widget is in use.

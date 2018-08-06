@@ -30,7 +30,7 @@ add_filter( 'genesis_term_intro_text_output', 'genesiswooc_term_intro_text_outpu
  * @param string $intro_text The default Genesis archive intro text.
  * @return string Archive intro text, or archive description if no intro text set.
  *
- * @since 0.9.11
+ * @since 1.0
  */
 function genesiswooc_term_intro_text_output( $intro_text ) {
 	$wp_archive_description = get_the_archive_description();
