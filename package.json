@@ -1,7 +1,7 @@
 {
   "name": "genesis-connect-woocommerce",
   "title": "Genesis Connect for Woocommerce",
-  "version": "0.9.11",
+  "version": "1.0",
   "description": "Plugin that allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.",
   "main": "Gruntfile.js",
   "repository": {
