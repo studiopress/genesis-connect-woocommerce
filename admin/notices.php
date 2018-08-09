@@ -1,9 +1,9 @@
 <?php
 /**
- * Callbacks for `admin_notices` action to load HTML notices. 
+ * Callbacks for `admin_notices` action to load HTML notices.
  *
  * @package genesis_connect_woocommerce
- * @version 0.9.11
+ * @version 1.0
  */
 defined( 'ABSPATH' ) || exit;
 

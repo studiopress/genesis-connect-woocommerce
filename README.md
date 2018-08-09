@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: nathanrice, studiopress, studiograsshopper
+Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 3.3
 Tested up to: 4.9
@@ -47,10 +47,6 @@ There's no need! Genesis Connect for WooCommerce modifies the default Genesis br
 
 1. Go to the *Dashboard > Settings > Reading* page select A Static Page and select "Shop" as the front page.
 2. It is recommended to turn off Genesis breadcrumbs for the Home page in *Dashboard > Genesis > Theme Settings > Breadcrumb options*.
-
-= Does it work with Genesis Simple Sidebars? =
-
-Yes.
 
 = Does it work with Genesis Simple Sidebars? =
 
@@ -135,8 +131,8 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 == Changelog ==
 
-= 0.9.11 [Unreleased] =
-* Released XX July 2018.
+= 1.0 =
+* Released 7 August 2018.
 * Add WooCommerce version check support.
 * Reinstate Genesis Featured Products widget. (Enable with `add_theme_support( 'gencwooc-featured-products-widget' );`.)
 * Prevent ‘ID was called incorrectly’ error if Genesis Featured Products widget is in use.
