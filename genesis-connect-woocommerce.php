@@ -65,6 +65,7 @@ function gencwooc_setup() {
 
 	require_once GCW_LIB_DIR . '/template-loader.php';
 	require_once GCW_LIB_DIR . '/posts-per-page.php';
+	require_once GCW_LIB_DIR . '/widgets.php';
 
 	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs' ) ) {
 		require_once GCW_LIB_DIR . '/breadcrumb.php';
@@ -76,7 +77,7 @@ function gencwooc_setup() {
 	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
 
 	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) ) {
-		require_once GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php';
+		require_once GCW_WIDGETS_DIR . '/class-gencwooc-featured-products.php';
 	}
 
 	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );
