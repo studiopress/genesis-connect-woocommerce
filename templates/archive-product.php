@@ -14,6 +14,10 @@
  * any future updates to this plugin won't wipe out your customisations.
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
