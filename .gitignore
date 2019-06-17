@@ -1,4 +1,5 @@
 .DS_Store
-Thumbs.db
 .svn
+Thumbs.db
 node_modules/
+vendor/
