@@ -55,8 +55,8 @@ add_filter( 'theme_mod_nav_menu_locations', 'gencwooc_gsm_theme_mod' );
  */
 function gencwooc_gsm_theme_mod( $mods ) {
 
-    $shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
-    $_menu   = get_post_meta( $shop_id, '_gsm_menu', true );
+	$shop_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'shop' ) : woocommerce_get_page_id( 'shop' );
+	$_menu   = get_post_meta( $shop_id, '_gsm_menu', true );
 
 	if ( is_post_type_archive( 'product' ) && $_menu ) {
 		$mods['secondary'] = (int) $_menu;
