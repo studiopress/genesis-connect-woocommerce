@@ -7,13 +7,13 @@
  *
  *
  * By default, the Genesis Breadcrumb class does not handle Shop pages and taxonomy archives in the
- * same way as WooC's breadcrumbs. These filters and callback functions modify the default Genesis
+ * same way as WooCommerce breadcrumbs. These filters and callback functions modify the default Genesis
  * breadcrumb output so that the breadcrumb trail mimics that of WooCommerce breadcrumbs for:
  * - Shop page (archive page)
  * - Single product
  * - Taxonomy archive
  *
- * Users who prefer to use WooC's breadcrumbs can do so by adding this to their child
+ * Users who prefer to use WooCommerce breadcrumbs can do so by adding this to their child
  * theme's functions.php:
  * - add_theme_support( 'gencwooc-woo-breadcrumbs' );
  * And this to the relevant templates:

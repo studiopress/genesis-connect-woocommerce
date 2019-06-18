@@ -53,12 +53,12 @@ add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
  * Display shop items (product custom post archive)
  *
  * This function has been refactored in 0.9.4 to provide compatibility with
- * both WooC 1.6.0 and backwards compatibility with older versions.
- * This is needed thanks to substantial changes to WooC template contents
- * introduced in WooC 1.6.0.
+ * both WooCommerce 1.6.0 and backwards compatibility with older versions.
+ * This is needed thanks to substantial changes to WooCommerce template contents
+ * introduced in WooCommerce 1.6.0.
  *
- * @uses genesiswooc_content_product() if WooC is version 1.6.0+
- * @uses genesiswooc_product_archive() for earlier WooC versions
+ * @uses genesiswooc_content_product() if WooCommerce is version 1.6.0+
+ * @uses genesiswooc_product_archive() for earlier WooCommerce versions
  *
  * @since 0.9.0
  * @updated 0.9.4

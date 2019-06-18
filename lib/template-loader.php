@@ -116,7 +116,7 @@ function gencwooc_template_loader( $template ) {
  * Based on woocommerce_get_template_part()
  *
  * Note: updated v0.9.3 to reflect changes to woocommerce_get_template_part() introduced in
- * WooC v1.4+ and, effectively, this function is a clone of woocommerce_get_template_part()
+ * WooCommerce v1.4+ and, effectively, this function is a clone of woocommerce_get_template_part()
  *
  * @global object $woocommerce WooCommerce instance
  *

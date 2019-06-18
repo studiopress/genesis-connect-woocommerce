@@ -54,14 +54,14 @@ add_action( 'genesis_loop', 'genesiswooc_product_taxonomy_loop' );
  * Displays shop items for the queried taxonomy term.
  *
  * This function has been refactored in 0.9.4 to provide compatibility with
- * both WooC 1.6.0 and backwards compatibility with older versions.
- * This is needed thanks to substantial changes to WooC template contents
- * introduced in WooC 1.6.0.
+ * both WooCommerce 1.6.0 and backwards compatibility with older versions.
+ * This is needed thanks to substantial changes to WooCommerce template contents
+ * introduced in WooCommerce 1.6.0.
  *
  * @global $woocommerce $woocommerce The WooCommerce instance.
  *
- * @uses genesiswooc_content_product() if WooC is version 1.6.0+
- * @uses genesiswooc_product_taxonomy() for earlier WooC versions
+ * @uses genesiswooc_content_product() if WooCommerce is version 1.6.0+
+ * @uses genesiswooc_product_taxonomy() for earlier WooCommerce versions
  *
  * @since 0.9.0
  */
