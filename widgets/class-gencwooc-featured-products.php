@@ -6,6 +6,10 @@
  * @since 0.9.9
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Genesis Featured Products widget for the Genesis Connect plugin.
  *
