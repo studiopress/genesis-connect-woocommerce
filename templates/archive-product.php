@@ -61,7 +61,7 @@ add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
  * @uses genesiswooc_product_archive() for earlier WooCommerce versions
  *
  * @since 0.9.0
- * @updated 0.9.4
+ *
  * @global object $woocommerce
  */
 function genesiswooc_archive_product_loop() {
