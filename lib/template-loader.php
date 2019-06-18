@@ -272,6 +272,7 @@ function genesiswooc_content_product() {
 		if ( wc_get_loop_prop( 'total' ) ) {
 			while ( have_posts() ) {
 				the_post();
+
 				/**
 				 * Hook: woocommerce_shop_loop.
 				 *
