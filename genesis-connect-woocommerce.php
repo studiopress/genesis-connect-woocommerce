@@ -11,7 +11,7 @@
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  *
  * WC requires at least: 3.3.0
- * WC tested up to: 3.4
+ * WC tested up to: 3.6.4
  *
  * @package Genesis_Connect_WooCommerce
  *
