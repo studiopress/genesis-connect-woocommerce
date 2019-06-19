@@ -64,7 +64,7 @@ function gencwooc_get_archive_crumb_filter( $crumb, $args ) {
 				get_post_type_archive_link( 'product' ),
 				$shop_name,
 				$shop_name,
-				$args['sep'] . __( 'Search results for &ldquo;', 'woocommerce' ) . get_search_query() . '&rdquo;'
+				$args['sep'] . __( 'Search results for &ldquo;', 'gencwooc' ) . get_search_query() . '&rdquo;'
 			);
 		}
 
