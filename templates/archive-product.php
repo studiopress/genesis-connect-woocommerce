@@ -72,10 +72,10 @@ function genesiswooc_archive_product_loop() {
 
 	if ( $new ) {
 		genesiswooc_content_product();
-
 	} else {
 		genesiswooc_product_archive();
 	}
+
 }
 
 genesis();
