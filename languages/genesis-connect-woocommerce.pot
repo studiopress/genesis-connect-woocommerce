@@ -1,0 +1,202 @@
+# Copyright (C) 2019 StudioPress
+# This file is distributed under the same license as the Genesis Connect for WooCommerce plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Genesis Connect for WooCommerce 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/genesis-connect-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-06-19T20:26:30+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: gencwooc\n"
+
+#. Plugin Name of the plugin
+msgid "Genesis Connect for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/genesis-connect-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes."
+msgstr ""
+
+#. Author of the plugin
+msgid "StudioPress"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.studiopress.com/"
+msgstr ""
+
+#: admin/views/html-notice-needs-genesis.php:16
+msgid "Genesis Connect for WooCommerce requires a Genesis child theme. Please activate a Genesis theme or disable Genesis Connect."
+msgstr ""
+
+#: admin/views/html-notice-needs-woocommerce.php:16
+msgid "Genesis Connect for WooCommerce requires WooCommerce. Please activate WooCommerce or disable Genesis Connect."
+msgstr ""
+
+#: lib/template-loader.php:178
+msgid "Search Results:"
+msgstr ""
+
+#: lib/template-loader.php:181
+msgid "Page"
+msgstr ""
+
+#: lib/breadcrumb.php:67
+msgid "Search results for &ldquo;"
+msgstr ""
+
+#: lib/breadcrumb.php:114
+msgid "Products tagged &ldquo;"
+msgstr ""
+
+#: lib/breadcrumb.php:114
+msgctxt "endquote"
+msgid "&rdquo;"
+msgstr ""
+
+#: lib/posts-per-page.php:25
+#: lib/posts-per-page.php:62
+msgid "Genesis Connect Addons"
+msgstr ""
+
+#: lib/posts-per-page.php:68
+msgid "Products Per Page"
+msgstr ""
+
+#: lib/posts-per-page.php:70
+msgid "This setting determines how many products show up on archive pages and may be overridden by filters used in themes and plugins."
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:54
+msgid "More Products from this Category"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:59
+msgid "Genesis - Featured Products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:60
+msgid "Displays featured products with thumbnails"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:66
+msgid "Title"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:71
+msgid "Product Category"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:80
+msgid "Products to Show"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:88
+msgid "Product Offset"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:93
+msgid "Show"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:95
+msgid "All products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:96
+msgid "Featured products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:97
+msgid "On-sale products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:103
+msgid "Order by"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:105
+msgid "Date"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:106
+msgid "Price"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:107
+msgid "Random"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:108
+msgid "Sales"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:114
+msgctxt "Sorting Order"
+msgid "Order"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:116
+msgid "ASC"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:117
+msgid "DESC"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:123
+msgid "Hide Free Products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:128
+msgid "Show Hidden Products"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:133
+msgid "Show Featured Image?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:138
+msgid "Image Size"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:144
+msgid "Link Product Image?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:149
+msgid "Show Title?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:154
+msgid "Show Add to Cart Button?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:159
+msgid "Show Price?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:164
+msgid "Show Category Archive Link?"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:169
+msgid "Link Text:"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:197
+msgid "All Categories"
+msgstr ""
+
+#: widgets/class-gencwooc-featured-products.php:408
+msgid "(no title)"
+msgstr ""
