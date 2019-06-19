@@ -12,13 +12,17 @@
         "php": "^5.6 || ^7",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
         "squizlabs/php_codesniffer": "^3.4.2",
-        "phpcompatibility/phpcompatibility-wp": "^2.0",
+        "phpcompatibility/phpcompatibility-wp": "^2",
         "wp-coding-standards/wpcs": "^2.1"
     },
     "scripts": {
-        "phpcs": "phpcs --standard=WordPress --ignore=vendor/,node_modules/,assets/ --extensions=php -p ./",
-        "phpcs-compat": "phpcs --extensions=php --standard=PHPCompatibilityWP --ignore=vendor/,node_modules/,assets/ --runtime-set testVersion 5.6- -p ./",
-        "phpcbf": "phpcbf --standard=WordPress --ignore=vendor/,node_modules/,assets/ --extensions=php -p ./"
+        "phpcs": "phpcs -p ./",
+        "php-compat": "phpcs --standard=PHPCompatibilityWP --ignore=/vendor --runtime-set testVersion 5.6- -p ./",
+        "sniff": [
+            "@php-compat",
+            "@phpcs"
+        ],
+        "phpcbf": "phpcbf -p ./"
     },
     "support": {
         "issues": "https://github.com/studiopress/genesis-connect-woocommerce/issues",
