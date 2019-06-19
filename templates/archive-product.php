@@ -33,8 +33,9 @@ add_filter( 'genesis_pre_get_option_site_layout', 'genesiswooc_archive_layout' )
  *
  * @since 0.9.0
  *
- * @param str $layout Current Genesis page layout, such as 'content-sidebar'.
- * @return str Page layout if set for the shop page, otherwise the default site layout.
+ * @param string $layout Current Genesis page layout, such as 'content-sidebar'.
+ *
+ * @return string Page layout if set for the shop page, otherwise the default site layout.
  */
 function genesiswooc_archive_layout( $layout ) {
 
@@ -52,17 +53,18 @@ add_action( 'genesis_before_loop', 'genesiswooc_archive_product_loop' );
 /**
  * Display shop items (product custom post archive)
  *
- * This function has been refactored in 0.9.4 to provide compatibility with
- * both WooCommerce 1.6.0 and backwards compatibility with older versions.
- * This is needed thanks to substantial changes to WooCommerce template contents
- * introduced in WooCommerce 1.6.0.
+ * This function has been refactored in 0.9.4 to provide compatibility with both WooCommerce 1.6.0
+ * and backwards compatibility with older versions.
+ *
+ * This is needed thanks to substantial changes to WooCommerce template contents introduced in
+ * WooCommerce 1.6.0.
  *
  * @uses genesiswooc_content_product() if WooCommerce is version 1.6.0+
  * @uses genesiswooc_product_archive() for earlier WooCommerce versions
  *
  * @since 0.9.0
  *
- * @global object $woocommerce
+ * @global WooCommerce $woocommerce Current WooCommerce instance.
  */
 function genesiswooc_archive_product_loop() {
 
