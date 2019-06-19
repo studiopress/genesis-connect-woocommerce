@@ -14,8 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Genesis Featured Products widget for the Genesis Connect plugin.
  *
  * @since 1.0.0
- *
- * @package Canvas
  */
 class Gencwooc_Featured_Products extends WC_Widget {
 
