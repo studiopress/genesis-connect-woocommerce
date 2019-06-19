@@ -1,0 +1,28 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/php:7.3-stretch
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-
+      - run:
+          name: "Install composer dependencies."
+          command: composer install --no-interaction --prefer-dist --no-suggest
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      - run:
+          name: "Run PHPCS"
+          command: composer sniff
+
+workflows:
+  version: 2
+  check-wp-cs:
+    jobs:
+      - test
