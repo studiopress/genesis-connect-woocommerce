@@ -125,7 +125,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 			'show_hidden'             => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_hidden'] ),
-				'label' => __( 'Show Hidden Products', 'gensis' ),
+				'label' => __( 'Show Hidden Products', 'gencwooc' ),
 			),
 			'show_image'              => array(
 				'type'  => 'checkbox',
