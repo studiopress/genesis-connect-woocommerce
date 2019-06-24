@@ -29,7 +29,7 @@ add_action( 'after_setup_theme', 'gencwooc_setup' );
 /**
  * Setup Genesis Connect for WooCommerce.
  *
- * Checks whether WooCommerce is active, then checks if relevant theme support exists.
+ * Checks whether WooCommerce is active.
  * Once past these checks, loads the necessary files, actions and filters for the plugin
  * to do its thing.
  *
