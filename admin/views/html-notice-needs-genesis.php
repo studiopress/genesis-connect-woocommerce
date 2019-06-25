@@ -1,11 +1,18 @@
 <?php
 /**
- * Admin View: Notice - needs Genesis.
+ * View for WordPress `admin_notice` if Genesis is not active.
+ *
+ * @package Genesis_Connect_WooCommerce
+ * @since 1.0.0
  */
 
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
 <div id="message" class="error notice">
-	<p><?php _e( '<i>Genesis Connect for WooCommerce</i> requires a Genesis child theme. <strong>Please activate a Genesis theme or disable Genesis Connect.</strong>', 'gencwooc' ); ?></p>	
+	<p>
+		<?php esc_html_e( 'Genesis Connect for WooCommerce requires a Genesis child theme. Please activate a Genesis theme or disable Genesis Connect.', 'gencwooc' ); ?>
+	</p>
 </div>

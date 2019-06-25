@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Genesis Connect WooCommerce" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <description>Ruleset for Genesis Connect WooCommerce.</description>
+
+    <exclude-pattern>/vendor/</exclude-pattern>
+
+    <arg name="colors" />
+    <arg name="basepath" value="." />
+    <arg name="parallel" value="50" />
+    <arg name="extensions" value="php" />
+
+    <config name="minimum_supported_wp_version" value="4.7" />
+
+    <rule ref="WordPress" />
+
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="gencwooc" />
+            </property>
+        </properties>
+    </rule>
+</ruleset>

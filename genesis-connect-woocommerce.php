@@ -1,48 +1,53 @@
 <?php
-/*
-Plugin Name: Genesis Connect for WooCommerce
-Plugin URI: https://wordpress.org/plugins/genesis-connect-woocommerce/
-Version: 1.0
-Author: StudioPress
-Author URI: https://www.studiopress.com/
-Description: Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
-WC requires at least: 3.3.0
-WC tested up to: 3.4
+/**
+ * Plugin Name: Genesis Connect for WooCommerce
+ * Plugin URI: https://wordpress.org/plugins/genesis-connect-woocommerce/
+ * Version: 1.0
+ * Author: StudioPress
+ * Author URI: https://www.studiopress.com/
+ * Description: Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
+ * Text Domain: gencwooc
+ * License: GNU General Public License v2.0 (or later)
+ * License URI: http://www.opensource.org/licenses/gpl-license.php
+ *
+ * WC requires at least: 3.3.0
+ * WC tested up to: 3.6.4
+ *
+ * @package Genesis_Connect_WooCommerce
+ *
+ * Special thanks to Ade Walker (http://www.studiograsshopper.ch/) for his contributions to this plugin.
+ */
 
-License: GNU General Public License v2.0 (or later)
-License URI: http://www.opensource.org/licenses/gpl-license.php
-
-Special thanks to Ade Walker (http://www.studiograsshopper.ch/) for his contributions to this plugin.
-*/
-
-/** Define the Genesis Connect for WooCommerce constants */
+define( 'GCW_DIR', dirname( __FILE__ ) );
 define( 'GCW_TEMPLATE_DIR', dirname( __FILE__ ) . '/templates' );
-define( 'GCW_LIB_DIR', dirname( __FILE__ ) . '/lib');
-define( 'GCW_ADMIN_DIR', dirname( __FILE__ ) . '/admin');
+define( 'GCW_LIB_DIR', dirname( __FILE__ ) . '/lib' );
+define( 'GCW_ADMIN_DIR', dirname( __FILE__ ) . '/admin' );
 define( 'GCW_WIDGETS_DIR', dirname( __FILE__ ) . '/widgets' );
 define( 'GCW_SP_DIR', dirname( __FILE__ ) . '/sp-plugins-integration' );
 
 add_action( 'after_setup_theme', 'gencwooc_setup' );
 /**
- * Setup GCW
+ * Setup Genesis Connect for WooCommerce.
  *
- * Checks whether WooCommerce is active, then checks if relevant
- * theme support exists. Once past these checks, loads the necessary
- * files, actions and filters for the plugin to do its thing.
+ * Checks whether WooCommerce is active.
+ * Once past these checks, loads the necessary files, actions and filters for the plugin
+ * to do its thing.
  *
  * @since 0.9.0
  */
 function gencwooc_setup() {
 
 	require_once GCW_ADMIN_DIR . '/notices.php';
+
 	$ready = true;
 
 	if ( ! function_exists( 'is_plugin_active' ) ) {
-		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
 	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 		add_action( 'admin_notices', 'gencwooc_woocommerce_notice' );
+
 		$ready = false;
 	}
 
@@ -60,42 +65,47 @@ function gencwooc_setup() {
 
 	global $woocommerce;
 
-	/** Load GCW files */
-	require_once( GCW_LIB_DIR . '/template-loader.php' );
+	require_once GCW_LIB_DIR . '/template-loader.php';
+	require_once GCW_LIB_DIR . '/posts-per-page.php';
+	require_once GCW_LIB_DIR . '/widgets.php';
 
-	// Load posts per page option
-	require_once( GCW_LIB_DIR . '/posts-per-page.php' );
-
-	/** Load modified Genesis breadcrumb filters and callbacks */
-	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs') )
-		require_once( GCW_LIB_DIR . '/breadcrumb.php' );
-
-	/** Ensure WooCommerce 2.0+ compatibility */
-	add_theme_support( 'woocommerce' );
-
-	/** Add Genesis Layout, Genesis Scripts and SEO options to Product edit screen */
-	add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-scripts', 'genesis-seo' ) );
-
-	/** Add Studiopress plugins support */
-	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
-
-	/** Add Widgets */
-	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) ) {
-		require_once( GCW_WIDGETS_DIR . '/woocommerce-featured-widgets.php' );
+	if ( ! current_theme_supports( 'gencwooc-woo-breadcrumbs' ) ) {
+		require_once GCW_LIB_DIR . '/breadcrumb.php';
 	}
 
-	/** Take control of shop template loading */
+	add_theme_support( 'woocommerce' );
+
+	add_post_type_support( 'product', array( 'genesis-layouts', 'genesis-scripts', 'genesis-seo' ) );
+	add_post_type_support( 'product', array( 'genesis-simple-sidebars', 'genesis-simple-menus' ) );
+
+	if ( current_theme_supports( 'gencwooc-featured-products-widget' ) ) {
+		require_once GCW_WIDGETS_DIR . '/class-gencwooc-featured-products.php';
+	}
+
 	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );
 	add_filter( 'template_include', 'gencwooc_template_loader', 20 );
 
-	/** Integration - Genesis Simple Sidebars */
 	if ( is_plugin_active( 'genesis-simple-sidebars/plugin.php' ) ) {
-		require_once( GCW_SP_DIR . '/genesis-simple-sidebars.php' );
+		require_once GCW_SP_DIR . '/genesis-simple-sidebars.php';
 	}
 
-	/** Integration - Genesis Simple Menus */
 	if ( is_plugin_active( 'genesis-simple-menus/simple-menu.php' ) ) {
-		require_once( GCW_SP_DIR . '/genesis-simple-menus.php' );
+		require_once GCW_SP_DIR . '/genesis-simple-menus.php';
 	}
 
+}
+
+add_action( 'plugins_loaded', 'gencwooc_load_plugin_textdomain' );
+/**
+ * Load plugin translated strings.
+ *
+ * Callback for WordPress 'plugins_loaded' action.
+ *
+ * @uses load_plugin_textdomain()
+ * @link https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
+ *
+ * @since 1.0.1
+ */
+function gencwooc_load_plugin_textdomain() {
+	load_plugin_textdomain( 'gencwooc', false, GCW_DIR . '/languages' );
 }

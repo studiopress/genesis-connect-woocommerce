@@ -1,11 +1,18 @@
 <?php
 /**
- * Admin View: Notice - needs WooCommerce.
+ * View for WordPress `admin_notice` if WooCommerce is not active.
+ *
+ * @package Genesis_Connect_WooCommerce
+ * @since 1.0.0
  */
 
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
 <div id="message" class="error notice">
-	<p><?php _e( '<i>Genesis Connect for WooCommerce</i> requires WooCommerce. <strong>Please activate WooCommerce or disable Genesis Connect.</strong>', 'gencwooc' ); ?></p>	
+	<p>
+		<?php esc_html_e( 'Genesis Connect for WooCommerce requires WooCommerce. Please activate WooCommerce or disable Genesis Connect.', 'gencwooc' ); ?>
+	</p>
 </div>

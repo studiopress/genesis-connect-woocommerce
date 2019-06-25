@@ -1,5 +1,10 @@
+.editorconfig
 .git
 .gitignore
 .gitattributes
 .svnignore
+composer.json
+composer.lock
 node_modules
+phpcs.xml.dist
+vendor

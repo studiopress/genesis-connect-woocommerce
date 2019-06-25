@@ -2,7 +2,7 @@
 Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 3.3
-Tested up to: 4.9
+Tested up to: 5.2.2
 Stable tag: 1.0
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
@@ -162,7 +162,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 = 0.9.8 =
 * Released 9 July 2014
-* Updates genesiswooc_content_product() to reflect WooC 2.1+ templates and correct handling of WooC's page title filter function
+* Updates genesiswooc_content_product() to reflect WooCommerce 2.1+ templates and correct handling of WooCommerce page title filter function
 
 = 0.9.7 =
 * Released 22 December 2013
@@ -187,7 +187,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 = 0.9.2 =
 * Released 15 March 2012
-* single-product.php - Single product title template file now hooked in as per WooC 1.5.2
+* single-product.php - Single product title template file now hooked in as per WooCommerce 1.5.2
 
 = 0.9.1 =
 * Released 6 March 2012
