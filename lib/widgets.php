@@ -3,7 +3,7 @@
  * Widget callback functions.
  *
  * @package Genesis_Connect_WooCommerce
- * @since 1.0.1
+ * @since 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
