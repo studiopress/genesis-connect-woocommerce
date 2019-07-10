@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Genesis Connect for WooCommerce
  * Plugin URI: https://wordpress.org/plugins/genesis-connect-woocommerce/
- * Version: 1.0
+ * Version: 1.1.0
  * Author: StudioPress
  * Author URI: https://www.studiopress.com/
  * Description: Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
