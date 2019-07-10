@@ -131,6 +131,11 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 == Changelog ==
 
+= 1.1.0 =
+* Added php codesniffer via composer package for WordPress code standards.
+* Fixed spacing and syntax issues for WordPress code standards.
+* Renamed Gencwooc_Featured_Products file to adhere to WordPress code standards.
+
 = 1.0 =
 * Released 7 August 2018.
 * Add WooCommerce version check support.
