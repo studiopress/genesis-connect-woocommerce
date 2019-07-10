@@ -104,7 +104,7 @@ add_action( 'plugins_loaded', 'gencwooc_load_plugin_textdomain' );
  * @uses load_plugin_textdomain()
  * @link https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
  *
- * @since 1.0.1
+ * @since 1.1.0
  */
 function gencwooc_load_plugin_textdomain() {
 	load_plugin_textdomain( 'gencwooc', false, GCW_DIR . '/languages' );
