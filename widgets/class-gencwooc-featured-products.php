@@ -391,12 +391,12 @@ class Gencwooc_Featured_Products extends WC_Widget {
 						printf(
 							'<a href="%s" class="entry-image-wrap">%s</a>',
 							esc_url( get_permalink() ),
-							wp_make_content_images_responsive( $image ) // phpcs:ignore WordPress.Security.EscapeOutput
+							$image // phpcs:ignore WordPress.Security.EscapeOutput
 						);
 					} else {
 						printf(
 							'<div class="entry-image-wrap">%s</div>',
-							wp_make_content_images_responsive( $image ) // phpcs:ignore WordPress.Security.EscapeOutput
+							$image // phpcs:ignore WordPress.Security.EscapeOutput
 						);
 					}
 				}
