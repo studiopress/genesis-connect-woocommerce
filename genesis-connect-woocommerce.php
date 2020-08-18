@@ -13,7 +13,7 @@
  * Requires at least: 4.7
  *
  * WC requires at least: 3.3.0
- * WC tested up to: 4.3.3
+ * WC tested up to: 4.4.0
  *
  * @package Genesis_Connect_WooCommerce
  *
