@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale, wpengine, dreamwhisper
 Tags: genesis, genesiswp, studiopress, woocommerce
-Requires at least: 3.3
+Requires at least: 4.7
 Tested up to: 5.5
 Stable tag: 1.1.1
 

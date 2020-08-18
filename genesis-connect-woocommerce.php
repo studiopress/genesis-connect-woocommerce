@@ -9,6 +9,8 @@
  * Text Domain: gencwooc
  * License: GNU General Public License v2.0 (or later)
  * License URI: http://www.opensource.org/licenses/gpl-license.php
+ * Requires PHP: 5.6
+ * Requires at least: 4.7
  *
  * WC requires at least: 3.3.0
  * WC tested up to: 4.3.3
