@@ -13,7 +13,7 @@
  * WC requires at least: 3.3.0
  * WC tested up to: 3.6.4
  *
- * @package genesis-connect-woocommerce
+ * @package Genesis_Connect_WooCommerce
  *
  * Special thanks to Ade Walker (http://www.studiograsshopper.ch/) for his contributions to this plugin.
  */
