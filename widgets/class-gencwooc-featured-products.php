@@ -185,7 +185,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 	}
 
 	/**
-	 * Function to retrieve the actual product categories as an assosiative array. Used to output
+	 * Function to retrieve the actual product categories as an associative array. Used to output
 	 * a dropdown in the widget settings.
 	 *
 	 * @return array Associative array of product categories.
@@ -211,7 +211,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 	 * Function to retrieve an associative array containing all possible featured image sizes to
 	 * be used.
 	 *
-	 * @return array Associative array containg possible image sizes and dimensions.
+	 * @return array Associative array containing possible image sizes and dimensions.
 	 */
 	public function get_featured_image_sizes() {
 
@@ -231,7 +231,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 	 * Main function to retrieve a WP_Query object with appropriate arguments passed in from
 	 * the instance.
 	 *
-	 * @param array $args     Widgdet instance arguments.
+	 * @param array $args     Widget instance arguments.
 	 * @param array $instance Instance arguments to be used in the query.
 	 *
 	 * @return object New WP_Query object to be looped through.
@@ -391,12 +391,12 @@ class Gencwooc_Featured_Products extends WC_Widget {
 						printf(
 							'<a href="%s" class="entry-image-wrap">%s</a>',
 							esc_url( get_permalink() ),
-							wp_make_content_images_responsive( $image ) // phpcs:ignore WordPress.Security.EscapeOutput
+							$image // phpcs:ignore WordPress.Security.EscapeOutput
 						);
 					} else {
 						printf(
 							'<div class="entry-image-wrap">%s</div>',
-							wp_make_content_images_responsive( $image ) // phpcs:ignore WordPress.Security.EscapeOutput
+							$image // phpcs:ignore WordPress.Security.EscapeOutput
 						);
 					}
 				}
