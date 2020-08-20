@@ -1,9 +1,9 @@
 === Plugin Name ===
-Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale
+Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale, wpengine, dreamwhisper
 Tags: genesis, genesiswp, studiopress, woocommerce
-Requires at least: 3.3
-Tested up to: 5.4
-Stable tag: 1.1.0
+Requires at least: 4.7
+Tested up to: 5.5
+Stable tag: 1.1.1
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
@@ -131,6 +131,9 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 == Changelog ==
 
+= 1.1.1 =
+* Removed use of `wp_make_content_images_responsive` featured product widget images; srcset is applied via `wp_calculate_image_srcset` in `wp_get_attachment_image` used by `genesis_get_image`.
+
 = 1.1.0 =
 * Added php codesniffer via composer package for WordPress code standards.
 * Fixed spacing and syntax issues for WordPress code standards.
@@ -155,8 +158,8 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * Allow network activation on WordPress multisite networks.
 
 = 0.9.10 =
-* Update theme templates for WooCommerce 3.3
-* Add Featured Products Widget
+* Update theme templates for WooCommerce 3.3.
+* Add Featured Products Widget.
 
 = 0.9.9 =
 * Released 12 January 2017
@@ -167,7 +170,7 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 = 0.9.8 =
 * Released 9 July 2014
-* Updates genesiswooc_content_product() to reflect WooCommerce 2.1+ templates and correct handling of WooCommerce page title filter function
+* Updates genesiswooc_content_product() to reflect WooCommerce 2.1+ templates and correct handling of WooCommerce page title filter function.
 
 = 0.9.7 =
 * Released 22 December 2013
@@ -179,24 +182,24 @@ For the benefit of theme developers and customizers, here is a summary of possib
 
 = 0.9.5 =
 * Released 14 March 2013
-* add_theme_support( 'woocommerce' ) added to ensure compatibility with WooCommerce 2.0+
+* add_theme_support( 'woocommerce' ) added to ensure compatibility with WooCommerce 2.0+.
 
 = 0.9.4 =
 * Released 19 July 2012
-* Tweaked archive-product.php and taxonomy.php loop functions to provide compatibility with WooCommerce 1.6.0
+* Tweaked archive-product.php and taxonomy.php loop functions to provide compatibility with WooCommerce 1.6.0.
 
 = 0.9.3 =
 * Released 14 May 2012
-* taxonomy.php and archive-product.php now use woocommerce_get_template_part() instead of gencwooc_get_template_part()
+* taxonomy.php and archive-product.php now use woocommerce_get_template_part() instead of gencwooc_get_template_part().
 * gencwooc_get_template_part() updated to reflect latest version of woocommerce_get_template_part(). Note: gencwooc_get_template_part() will be deprecated in a future version and is only retained for backwards compatibility.
 
 = 0.9.2 =
 * Released 15 March 2012
-* single-product.php - Single product title template file now hooked in as per WooCommerce 1.5.2
+* single-product.php - Single product title template file now hooked in as per WooCommerce 1.5.2.
 
 = 0.9.1 =
 * Released 6 March 2012
-* Fixes call to undefined function error in sp-plugins-integration/genesis-simple-sidebars.php
+* Fixes call to undefined function error in sp-plugins-integration/genesis-simple-sidebars.php.
 
 = 0.9.0 =
-* Initial Release
+* Initial Release.
