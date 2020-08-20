@@ -86,16 +86,6 @@ jobs:
       - install_dependencies
       - run: composer phpcs
 
-  deploy_svn_branch:
-    executor: base
-    working_directory: /tmp/artifacts
-    steps:
-      - attach_workspace:
-          at: /tmp
-      - svn_setup
-      - svn_add_changes
-      - svn_commit
-
   deploy_svn_tag:
     executor: base
     working_directory: /tmp/artifacts
@@ -122,29 +112,6 @@ workflows:
           filters:
             branches:
               ignore:
-                - master
-
-  branch_deploy:
-    jobs:
-      - checkout:
-          filters:
-            branches:
-              only:
-                - master
-      - checks:
-          requires:
-            - checkout
-          filters:
-            branches:
-              only:
-                - master
-      - deploy_svn_branch:
-          context: genesis-svn
-          requires:
-            - checks
-          filters:
-            branches:
-              only:
                 - master
 
   tag_deploy:
