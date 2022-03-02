@@ -175,10 +175,10 @@ function genesiswooc_product_archive() {
 		$shop_page_title   = apply_filters( 'the_title', ( get_option( 'woocommerce_shop_page_title' ) ) ? get_option( 'woocommerce_shop_page_title' ) : $shop_page->post_title, $shop_page->ID );
 		$shop_page_content = $shop_page->post_content;
 	} else {
-		$shop_page_title = __( 'Search Results:', 'gencwooc' ) . ' &ldquo;' . get_search_query() . '&rdquo;';
+		$shop_page_title = __( 'Search Results:', 'genesis-connect-woocommerce' ) . ' &ldquo;' . get_search_query() . '&rdquo;';
 
 		if ( get_query_var( 'paged' ) ) {
-			$shop_page_title .= ' &mdash; ' . __( 'Page', 'gencwooc' ) . ' ' . get_query_var( 'paged' );
+			$shop_page_title .= ' &mdash; ' . __( 'Page', 'genesis-connect-woocommerce' ) . ' ' . get_query_var( 'paged' );
 		}
 
 		$shop_page_content = '';

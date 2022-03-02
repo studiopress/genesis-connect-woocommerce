@@ -6,7 +6,7 @@
  * Author: StudioPress
  * Author URI: https://www.studiopress.com/
  * Description: Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
- * Text Domain: gencwooc
+ * Text Domain: genesis-connect-woocommerce
  * License: GNU General Public License v2.0 (or later)
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  * Requires PHP: 5.6
@@ -109,5 +109,5 @@ add_action( 'plugins_loaded', 'gencwooc_load_plugin_textdomain' );
  * @since 1.1.0
  */
 function gencwooc_load_plugin_textdomain() {
-	load_plugin_textdomain( 'gencwooc', false, GCW_DIR . '/languages' );
+	load_plugin_textdomain( 'genesis-connect-woocommerce', false, GCW_DIR . '/languages' );
 }

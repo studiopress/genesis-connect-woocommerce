@@ -51,24 +51,24 @@ class Gencwooc_Featured_Products extends WC_Widget {
 				'show_add_to_cart'        => 1,
 				'show_price'              => 1,
 				'more_from_category'      => 0,
-				'more_from_category_text' => __( 'More Products from this Category', 'gencwooc' ),
+				'more_from_category_text' => __( 'More Products from this Category', 'genesis-connect-woocommerce' ),
 			)
 		);
 
 		$this->widget_cssclass    = 'featured-content featuredproducts';
-		$this->widget_name        = __( 'Genesis - Featured Products', 'gencwooc' );
-		$this->widget_description = __( 'Displays featured products with thumbnails', 'gencwooc' );
+		$this->widget_name        = __( 'Genesis - Featured Products', 'genesis-connect-woocommerce' );
+		$this->widget_description = __( 'Displays featured products with thumbnails', 'genesis-connect-woocommerce' );
 		$this->widget_id          = 'featured-products';
 		$this->settings           = array(
 			'title'                   => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Title', 'gencwooc' ),
+				'label' => __( 'Title', 'genesis-connect-woocommerce' ),
 			),
 			'product_cat'             => array(
 				'type'    => 'select',
 				'std'     => esc_html( $this->defaults['category'] ),
-				'label'   => __( 'Product Category', 'gencwooc' ),
+				'label'   => __( 'Product Category', 'genesis-connect-woocommerce' ),
 				'options' => array(),
 			),
 			'product_num'             => array(
@@ -77,7 +77,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 				'min'   => 1,
 				'max'   => '',
 				'std'   => absint( $this->defaults['count'] ),
-				'label' => __( 'Products to Show', 'gencwooc' ),
+				'label' => __( 'Products to Show', 'genesis-connect-woocommerce' ),
 			),
 			'product_offset'          => array(
 				'type'  => 'number',
@@ -85,88 +85,88 @@ class Gencwooc_Featured_Products extends WC_Widget {
 				'min'   => 0,
 				'max'   => '',
 				'std'   => absint( $this->defaults['offset'] ),
-				'label' => __( 'Product Offset', 'gencwooc' ),
+				'label' => __( 'Product Offset', 'genesis-connect-woocommerce' ),
 			),
 			'product_show'            => array(
 				'type'    => 'select',
 				'std'     => esc_html( $this->defaults['show_type'] ),
-				'label'   => __( 'Show', 'gencwooc' ),
+				'label'   => __( 'Show', 'genesis-connect-woocommerce' ),
 				'options' => array(
-					''         => __( 'All products', 'gencwooc' ),
-					'featured' => __( 'Featured products', 'gencwooc' ),
-					'onsale'   => __( 'On-sale products', 'gencwooc' ),
+					''         => __( 'All products', 'genesis-connect-woocommerce' ),
+					'featured' => __( 'Featured products', 'genesis-connect-woocommerce' ),
+					'onsale'   => __( 'On-sale products', 'genesis-connect-woocommerce' ),
 				),
 			),
 			'orderby'                 => array(
 				'type'    => 'select',
 				'std'     => esc_html( $this->defaults['orderby'] ),
-				'label'   => __( 'Order by', 'gencwooc' ),
+				'label'   => __( 'Order by', 'genesis-connect-woocommerce' ),
 				'options' => array(
-					'date'  => __( 'Date', 'gencwooc' ),
-					'price' => __( 'Price', 'gencwooc' ),
-					'rand'  => __( 'Random', 'gencwooc' ),
-					'sales' => __( 'Sales', 'gencwooc' ),
+					'date'  => __( 'Date', 'genesis-connect-woocommerce' ),
+					'price' => __( 'Price', 'genesis-connect-woocommerce' ),
+					'rand'  => __( 'Random', 'genesis-connect-woocommerce' ),
+					'sales' => __( 'Sales', 'genesis-connect-woocommerce' ),
 				),
 			),
 			'order'                   => array(
 				'type'    => 'select',
 				'std'     => esc_html( $this->defaults['order'] ),
-				'label'   => _x( 'Order', 'Sorting Order', 'gencwooc' ),
+				'label'   => _x( 'Order', 'Sorting Order', 'genesis-connect-woocommerce' ),
 				'options' => array(
-					'asc'  => __( 'ASC', 'gencwooc' ),
-					'desc' => __( 'DESC', 'gencwooc' ),
+					'asc'  => __( 'ASC', 'genesis-connect-woocommerce' ),
+					'desc' => __( 'DESC', 'genesis-connect-woocommerce' ),
 				),
 			),
 			'hide_free'               => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['hide_free'] ),
-				'label' => __( 'Hide Free Products', 'gencwooc' ),
+				'label' => __( 'Hide Free Products', 'genesis-connect-woocommerce' ),
 			),
 			'show_hidden'             => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_hidden'] ),
-				'label' => __( 'Show Hidden Products', 'gencwooc' ),
+				'label' => __( 'Show Hidden Products', 'genesis-connect-woocommerce' ),
 			),
 			'show_image'              => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_image'] ),
-				'label' => __( 'Show Featured Image?', 'gencwooc' ),
+				'label' => __( 'Show Featured Image?', 'genesis-connect-woocommerce' ),
 			),
 			'image_size'              => array(
 				'type'    => 'select',
 				'std'     => esc_html( $this->defaults['image_size'] ),
-				'label'   => __( 'Image Size', 'gencwooc' ),
+				'label'   => __( 'Image Size', 'genesis-connect-woocommerce' ),
 				'options' => $this->get_featured_image_sizes(),
 			),
 			'link_image'              => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['link_image'] ),
-				'label' => __( 'Link Product Image?', 'gencwooc' ),
+				'label' => __( 'Link Product Image?', 'genesis-connect-woocommerce' ),
 			),
 			'show_title'              => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_title'] ),
-				'label' => __( 'Show Title?', 'gencwooc' ),
+				'label' => __( 'Show Title?', 'genesis-connect-woocommerce' ),
 			),
 			'show_add_to_cart'        => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_add_to_cart'] ),
-				'label' => __( 'Show Add to Cart Button?', 'gencwooc' ),
+				'label' => __( 'Show Add to Cart Button?', 'genesis-connect-woocommerce' ),
 			),
 			'show_price'              => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['show_price'] ),
-				'label' => __( 'Show Price?', 'gencwooc' ),
+				'label' => __( 'Show Price?', 'genesis-connect-woocommerce' ),
 			),
 			'more_from_category'      => array(
 				'type'  => 'checkbox',
 				'std'   => absint( $this->defaults['more_from_category'] ),
-				'label' => __( 'Show Category Archive Link?', 'gencwooc' ),
+				'label' => __( 'Show Category Archive Link?', 'genesis-connect-woocommerce' ),
 			),
 			'more_from_category_text' => array(
 				'type'  => 'text',
 				'std'   => esc_html( $this->defaults['more_from_category_text'] ),
-				'label' => __( 'Link Text:', 'gencwooc' ),
+				'label' => __( 'Link Text:', 'genesis-connect-woocommerce' ),
 			),
 		);
 
@@ -194,7 +194,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 
 		$cats    = get_terms( 'product_cat' );
 		$options = array(
-			'' => __( 'All Categories', 'gencwooc' ),
+			'' => __( 'All Categories', 'genesis-connect-woocommerce' ),
 		);
 
 		if ( ! empty( $cats ) && ! is_wp_error( $cats ) ) {
@@ -405,7 +405,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 					$header = '';
 
 					if ( ! empty( $instance['show_title'] ) ) {
-						$title = get_the_title() ? get_the_title() : __( '(no title)', 'gencwooc' );
+						$title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis-connect-woocommerce' );
 
 						/**
 						 * Filter the featured post widget title.

@@ -64,7 +64,7 @@ function gencwooc_get_archive_crumb_filter( $crumb, $args ) {
 				get_post_type_archive_link( 'product' ),
 				$shop_name,
 				$shop_name,
-				$args['sep'] . __( 'Search results for &ldquo;', 'gencwooc' ) . get_search_query() . '&rdquo;'
+				$args['sep'] . __( 'Search results for &ldquo;', 'genesis-connect-woocommerce' ) . get_search_query() . '&rdquo;'
 			);
 		}
 
@@ -111,7 +111,7 @@ function gencwooc_get_archive_crumb_filter( $crumb, $args ) {
 	}
 
 	if ( is_tax( 'product_tag' ) ) {
-		$crumb .= $prepend . __( 'Products tagged &ldquo;', 'gencwooc' ) . single_term_title( '', false ) . _x( '&rdquo;', 'endquote', 'gencwooc' );
+		$crumb .= $prepend . __( 'Products tagged &ldquo;', 'genesis-connect-woocommerce' ) . single_term_title( '', false ) . _x( '&rdquo;', 'endquote', 'genesis-connect-woocommerce' );
 
 		return $crumb;
 	}

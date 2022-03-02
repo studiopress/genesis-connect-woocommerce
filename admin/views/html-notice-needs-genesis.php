@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div id="message" class="error notice">
 	<p>
-		<?php esc_html_e( 'Genesis Connect for WooCommerce requires a Genesis child theme. Please activate a Genesis theme or disable Genesis Connect.', 'gencwooc' ); ?>
+		<?php esc_html_e( 'Genesis Connect for WooCommerce requires a Genesis child theme. Please activate a Genesis theme or disable Genesis Connect.', 'genesis-connect-woocommerce' ); ?>
 	</p>
 </div>

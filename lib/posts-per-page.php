@@ -22,7 +22,7 @@ add_filter( 'woocommerce_settings_tabs_array', 'genesis_connect_addon_tab', 50 )
  */
 function genesis_connect_addon_tab( $tabs ) {
 
-	$tabs['gencwooc'] = __( 'Genesis Connect Addons', 'gencwooc' );
+	$tabs['gencwooc'] = __( 'Genesis Connect Addons', 'genesis-connect-woocommerce' );
 
 	return $tabs;
 
@@ -59,15 +59,15 @@ function genesis_connect_get_settings() {
 
 	$settings = array(
 		'gencwooc_section_title' => array(
-			'name' => __( 'Genesis Connect Addons', 'gencwooc' ),
+			'name' => __( 'Genesis Connect Addons', 'genesis-connect-woocommerce' ),
 			'type' => 'title',
-			'desc' => 'Set and save additional WooCommerce settings here.',
+			'desc' => __( 'Set and save additional WooCommerce settings here.', 'genesis-connect-woocommerce' ),
 			'id'   => 'gencwooc_section_title',
 		),
 		'products_per_page'      => array(
-			'name'    => __( 'Products Per Page', 'gencwooc' ),
+			'name'    => __( 'Products Per Page', 'genesis-connect-woocommerce' ),
 			'type'    => 'number',
-			'desc'    => __( 'This setting determines how many products show up on archive pages and may be overridden by filters used in themes and plugins.', 'gencwooc' ),
+			'desc'    => __( 'This setting determines how many products show up on archive pages and may be overridden by filters used in themes and plugins.', 'genesis-connect-woocommerce' ),
 			'id'      => 'gencwooc_products_per_page',
 			'default' => apply_filters( 'genesiswooc_default_products_per_page', get_option( 'posts_per_page' ) ),
 		),
