@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  php: circleci/php@1.0
   wp-svn: studiopress/wp-svn@0.1
 
 commands:
@@ -65,6 +64,10 @@ executors:
     docker:
       - image: cimg/base:current
     working_directory: /tmp
+  php_node:
+    docker:
+      - image: cimg/php:7.3-node
+    working_directory: /tmp/src
 
 jobs:
   checkout:
@@ -78,6 +81,14 @@ jobs:
           paths:
             - src
 
+  checks:
+    executor: php_node
+    steps:
+      - attach_workspace:
+          at: /tmp
+      - install_dependencies
+      - run: composer phpcs
+
   deploy_svn_tag:
     executor: base
     working_directory: /tmp/artifacts
@@ -90,14 +101,23 @@ jobs:
       - svn_commit
 
 workflows:
-  version: 2
   test-deploy:
     jobs:
-      - php/test:
-          test-command: phpcs
+      - checkout:
+          filters:
+            branches:
+              ignore:
+                - master
+      - checks:
+          requires:
+            - checkout
+          filters:
+            branches:
+              ignore:
+                - master
       - approval-for-deploy-tested-up-to-bump:
           type: approval
-          requires: 
+          requires:
             - checks
           filters:
             tags:
