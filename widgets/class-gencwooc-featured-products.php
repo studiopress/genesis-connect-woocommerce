@@ -215,7 +215,7 @@ class Gencwooc_Featured_Products extends WC_Widget {
 	 */
 	public function get_featured_image_sizes() {
 
-		$options = [];
+		$options = array();
 		$images  = genesis_get_image_sizes();
 
 		foreach ( $images as $size => $data ) {
