@@ -4,7 +4,7 @@ orbs:
   wp-svn: studiopress/wp-svn@0.2
 
 jobs:
-  checks:
+  lint:
     docker:
       - image: cimg/php:7.3-node
     steps:
@@ -14,34 +14,35 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-      - checks
+      - lint
       - approval-for-deploy-tested-up-to-bump:
           type: approval
           requires:
-            - checks
+            - lint
           filters:
             tags:
               ignore: /.*/
             branches:
               only: /^bump-tested-up-to.*/
       - wp-svn/deploy-tested-up-to-bump:
+          context: genesis-svn
           requires:
             - approval-for-deploy-tested-up-to-bump
 
-  tag_deploy:
+  tag-deploy:
     jobs:
-      - checks:
+      - lint:
           filters:
             tags:
               only: /^\d+\.\d+\.\d+$/
             branches:
-              only: /.*/
+              ignore: /.*/
       - wp-svn/deploy:
-          dry-run: true
+          context: genesis-svn
           requires:
-            - checks
+            - lint
           filters:
             tags:
               only: /^\d+\.\d+\.\d+$/
             branches:
-              only: /.*/
+              ignore: /.*/
