@@ -113,7 +113,6 @@ function gencwooc_load_plugin_textdomain() {
 }
 
 add_action( 'before_woocommerce_init', 'gencwooc_declare_compat' );
-
 /**
  * Declare compatibility.
  */
