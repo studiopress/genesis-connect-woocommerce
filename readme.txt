@@ -2,8 +2,8 @@
 Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale, wpengine, dreamwhisper
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 4.7
-Tested up to: 6.2
-Stable tag: 1.1.1
+Tested up to: 6.3
+Stable tag: 1.1.2
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
@@ -130,6 +130,9 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * The above information is based on WooCommerce 1.4.4
 
 == Changelog ==
+
+= 1.1.2 =
+* Declared compatibility with High Performance Order Storage.
 
 = 1.1.1 =
 * Removed use of `wp_make_content_images_responsive` featured product widget images; srcset is applied via `wp_calculate_image_srcset` in `wp_get_attachment_image` used by `genesis_get_image`.
