@@ -3,6 +3,7 @@
 .gitignore
 .gitattributes
 .svnignore
+.circleci
 composer.json
 composer.lock
 node_modules
