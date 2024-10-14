@@ -2,8 +2,8 @@
 Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale, wpengine, dreamwhisper
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 4.7
-Tested up to: 6.5
-Stable tag: 1.1.2
+Tested up to: 6.6
+Stable tag: 1.1.3
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
@@ -130,6 +130,9 @@ For the benefit of theme developers and customizers, here is a summary of possib
 * The above information is based on WooCommerce 1.4.4
 
 == Changelog ==
+
+= 1.1.3 =
+* Genesis Connect for WooCommerce now uses its own update mechanism from WP Engine servers.
 
 = 1.1.2 =
 * Declared compatibility with High Performance Order Storage.

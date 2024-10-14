@@ -1,6 +1,6 @@
 {
   "name": "genesis-connect-woocommerce",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "scripts": {
 	"zip": "node scripts/create-zip.js"
   },
