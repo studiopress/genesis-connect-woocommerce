@@ -121,3 +121,17 @@ function gencwooc_declare_compat() {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
 	}
 }
+
+/**
+ * Initialize checking of plugin updates from WP Engine.
+ */
+function genesis_connect_woocommerce_check_for_upgrades() {
+	$properties = array(
+		'plugin_slug'     => 'genesis-connect-woocommerce',
+		'plugin_basename' => plugin_basename( __FILE__ ),
+	);
+
+	require_once __DIR__ . '/lib/class-genesis-connect-woocommerce-plugin-updater.php';
+	new Genesis_Connect_Woocommerce_Plugin_Updater( $properties );
+}
+add_action( 'admin_init', 'genesis_connect_woocommerce_check_for_upgrades' );
