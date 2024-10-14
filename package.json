@@ -1,0 +1,11 @@
+{
+  "name": "genesis-connect-woocommerce",
+  "version": "1.1.2",
+  "scripts": {
+	"zip": "node scripts/create-zip.js"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.5.16",
+    "minimatch": "^10.0.1"
+  }
+}
