@@ -1,36 +1,41 @@
-# Copyright (C) 2020 StudioPress
-# This file is distributed under the same license as the Genesis Connect for WooCommerce plugin.
+# Copyright (C) 2024 StudioPress
+# This file is distributed under the GNU General Public License v2.0 (or later).
 msgid ""
 msgstr ""
-"Project-Id-Version: Genesis Connect for WooCommerce 1.1.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/genesis-connect-woocommerce\n"
+"Project-Id-Version: Genesis Connect for WooCommerce 1.1.3\n"
+"Report-Msgid-Bugs-To: StudioPress <translations@studiopress.com>\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-20T15:06:02+00:00\n"
+"POT-Creation-Date: 2024-10-14T08:15:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: gencwooc\n"
 
 #. Plugin Name of the plugin
+#: genesis-connect-woocommerce.php
 msgid "Genesis Connect for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: genesis-connect-woocommerce.php
 msgid "https://wordpress.org/plugins/genesis-connect-woocommerce/"
 msgstr ""
 
 #. Description of the plugin
+#: genesis-connect-woocommerce.php
 msgid "Allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes."
 msgstr ""
 
 #. Author of the plugin
+#: genesis-connect-woocommerce.php
 msgid "StudioPress"
 msgstr ""
 
 #. Author URI of the plugin
+#: genesis-connect-woocommerce.php
 msgid "https://www.studiopress.com/"
 msgstr ""
 
