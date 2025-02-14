@@ -1,9 +1,11 @@
-=== Plugin Name ===
+=== Genesis Connect for WooCommerce ===
 Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbath, calvinkoepke, curtismchale, wpengine, dreamwhisper
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 4.7
 Tested up to: 6.6
 Stable tag: 1.1.3
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 This plugin allows you to seamlessly integrate WooCommerce with the Genesis Framework and Genesis child themes.
 
