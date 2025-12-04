@@ -3,7 +3,7 @@ Contributors: nathanrice, studiopress, studiograsshopper, modernnerd, marksabbat
 Tags: genesis, genesiswp, studiopress, woocommerce
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
