@@ -101,18 +101,52 @@ function gencwooc_template_loader( $template ) {
  * ONLY RETAINED FOR BACKWARDS COMPATIBILITY for GCW pre-0.9.2 custom templates which
  * may use this function.
  *
- * Delegates to wc_get_template_part() which superseded both woocommerce_get_template_part()
- * and the previous manual locate_template() implementation. The $woocommerce->template_url
- * property was removed in WooCommerce 2.1 making the old implementation non-functional.
+ * Function looks for loop-shop.php in child theme's 'woocommerce' folder. If it doesn't exist,
+ * loads the default WooCommerce loop-shop.php file.
+ *
+ * Note: loop-shop.php is used to display products on the archive and taxonomy pages.
+ *
+ * Users can override the default WooCommerce loop-shop.php by placing their own template
+ * (named loop-shop.php) in their child theme's 'woocommerce' folder. The'woocommerce' folder
+ * must be a folder in the child theme root directory, eg themes/my-child-theme/woocommerce.
+ *
+ * It is recommended to use woocommerce/templates/loop-shop.php as the starting point of
+ * any custom loop template.
+ *
+ * Based on woocommerce_get_template_part()
+ *
+ * Note: updated v0.9.3 to reflect changes to woocommerce_get_template_part() introduced in
+ * WooCommerce v1.4+ and, effectively, this function is a clone of woocommerce_get_template_part()
+ *
+ * @global object $woocommerce WooCommerce instance
  *
  * @since 0.9.0
- * @deprecated Internally deprecated; call wc_get_template_part() directly in new code.
  *
  * @param string $slug The template slug.
  * @param string $name The template name.
  */
 function gencwooc_get_template_part( $slug, $name = '' ) {
-	wc_get_template_part( $slug, $name );
+
+	global $woocommerce;
+
+	$template = '';
+
+	if ( $name ) {
+		$template = locate_template( array( "{$slug}-{$name}.php", "{$woocommerce->template_url}{$slug}-{$name}.php" ) );
+	}
+
+	if ( ! $template && $name && file_exists( $woocommerce->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
+		$template = $woocommerce->plugin_path() . "/templates/{$slug}-{$name}.php";
+	}
+
+	if ( ! $template ) {
+		$template = locate_template( array( "{$slug}.php", "{$woocommerce->template_url}{$slug}.php" ) );
+	}
+
+	if ( $template ) {
+		load_template( $template, false );
+	}
+
 }
 
 /**
@@ -159,7 +193,7 @@ function genesiswooc_product_archive() {
 
 	echo apply_filters( 'the_content', $shop_page_content ); // phpcs:ignore WordPress.Security.EscapeOutput
 
-	wc_get_template_part( 'loop', 'shop' );
+	woocommerce_get_template_part( 'loop', 'shop' );
 
 	do_action( 'woocommerce_pagination' );
 
@@ -184,7 +218,7 @@ function genesiswooc_product_taxonomy() {
 
 	do_action( 'woocommerce_before_main_content' );
 
-	wc_get_template_part( 'loop', 'shop' );
+	woocommerce_get_template_part( 'loop', 'shop' );
 
 	do_action( 'woocommerce_pagination' );
 

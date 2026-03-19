@@ -43,7 +43,11 @@ function gencwooc_setup() {
 
 	$ready = true;
 
-	if ( ! class_exists( 'WooCommerce' ) ) {
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
+	}
+
+	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 		add_action( 'admin_notices', 'gencwooc_woocommerce_notice' );
 
 		$ready = false;
@@ -80,14 +84,14 @@ function gencwooc_setup() {
 		require_once GCW_WIDGETS_DIR . '/class-gencwooc-featured-products.php';
 	}
 
-	remove_filter( 'template_include', array( $woocommerce, 'template_loader' ) );
+	remove_filter( 'template_include', array( &$woocommerce, 'template_loader' ) );
 	add_filter( 'template_include', 'gencwooc_template_loader', 20 );
 
-	if ( function_exists( 'ss_do_sidebar' ) ) {
+	if ( is_plugin_active( 'genesis-simple-sidebars/plugin.php' ) ) {
 		require_once GCW_SP_DIR . '/genesis-simple-sidebars.php';
 	}
 
-	if ( class_exists( 'Genesis_Simple_Menus' ) ) {
+	if ( is_plugin_active( 'genesis-simple-menus/simple-menu.php' ) ) {
 		require_once GCW_SP_DIR . '/genesis-simple-menus.php';
 	}
 
@@ -105,7 +109,7 @@ add_action( 'plugins_loaded', 'gencwooc_load_plugin_textdomain' );
  * @since 1.1.0
  */
 function gencwooc_load_plugin_textdomain() {
-	load_plugin_textdomain( 'gencwooc' );
+	load_plugin_textdomain( 'gencwooc', false, GCW_DIR . '/languages' );
 }
 
 add_action( 'before_woocommerce_init', 'gencwooc_declare_compat' );
