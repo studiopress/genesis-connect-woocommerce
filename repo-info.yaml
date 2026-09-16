@@ -4,7 +4,6 @@ metadata:
   name: genesis-connect-woocommerce
 spec:
   type: repository
-  owner: team-gen
   engineeringExcellence:
     exemptedChecks:
       dependabotAutomationPresent:
