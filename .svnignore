@@ -16,3 +16,4 @@ vendor
 scripts/
 node_modules/
 *.zip
+repo-info.yaml
